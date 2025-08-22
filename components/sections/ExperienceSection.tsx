@@ -5,33 +5,63 @@ import { Building, Calendar } from "lucide-react"
 export function ExperienceSection() {
   const experiences = [
     {
-      title: "Senior Full-Stack Developer",
-      company: "TechCorp Inc.",
-      period: "2022 - Present",
-      location: "San Francisco, CA",
+      title: "Project Manager & Full-Stack Developer",
+      company: "Technology Solution Development TSD Co,.Ltd.",
+      period: "2020 - Present",
+      location: "Pnhom Penh, Cambodia",
       description:
-        "Leading development of scalable web applications using React, Next.js, and Node.js. Mentoring junior developers and architecting solutions for complex business requirements.",
-      technologies: ["React", "Next.js", "TypeScript", "AWS", "PostgreSQL"],
+        "Leading development of scalable web applications using PHP, Next.js, and Node.js. Mentoring junior developers and architecting solutions for complex business requirements.",
+      technologies: ["PHP", "Next.js", "TypeScript", "Cpanel", "PostgreSQL"],
       current: true,
     },
     {
       title: "Full-Stack Developer",
-      company: "StartupXYZ",
-      period: "2020 - 2022",
-      location: "Remote",
+      company: "Technology Solution Development TSD Co,.Ltd.",
+      period: "2021 - 2023",
+      location: "Pnhom Penh, Cambodia",
       description:
-        "Developed and maintained multiple client projects, implemented CI/CD pipelines, and collaborated with design teams to create pixel-perfect user interfaces.",
-      technologies: ["Vue.js", "Node.js", "MongoDB", "Docker", "GCP"],
+        "Developed and maintained multiple client projects, implemented PHP, Laravel, CodeIgniter, and collaborated with design teams to create pixel-perfect user interfaces.",
+      technologies: ["PHP", "Laravel", "CodeIgniter", "MySql", "Sqlite", "Git", "CMS"],
       current: false,
     },
     {
-      title: "Frontend Developer",
-      company: "Digital Agency",
-      period: "2019 - 2020",
-      location: "New York, NY",
+      title: "UX/UI Designer & Frontend Developer",
+      company: "Technology Solution Development TSD Co,.Ltd.",
+      period: "2020 - 2021",
+      location: "Pnhom Penh, Cambodia",
       description:
         "Created responsive web applications and landing pages for various clients. Focused on performance optimization and cross-browser compatibility.",
       technologies: ["JavaScript", "HTML5", "CSS3", "Webpack", "Sass"],
+      current: false,
+    },
+    {
+      title: "Internship - Web Development",
+      company: "Technology Solution Development TSD Co,.Ltd.",
+      period: "2019 - 2020",
+      location: "Pnhom Penh, Cambodia",
+      description:
+        "Created responsive web applications and landing pages for various clients. Focused on performance optimization and cross-browser compatibility.",
+      technologies: ["HTML5", "CSS", "JavaScript"],
+      current: false,
+    },
+    {
+      title: "Cashier & Customer Service",
+      company: "Bong Houses Pub",
+      period: "2019 - 2019",
+      location: "Kampong Cham, Cambodia",
+      description:
+        "Be able to handle cash transactions, and Using the POS system to process orders and payments.",
+      technologies: ["Customer Service", "Cash Handling"],
+      current: false,
+    },
+    {
+      title: "Cashier & Customer Service",
+      company: "Chapayom Tea",
+      period: "2018 - 2019",
+      location: "Kampong Cham, Cambodia",
+      description:
+        "Be able to handle cash transactions, and Using the POS system to process orders and payments.",
+      technologies: ["Customer Service", "Cash Handling"],
       current: false,
     },
   ]

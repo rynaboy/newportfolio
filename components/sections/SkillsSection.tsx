@@ -16,10 +16,7 @@ export function SkillsSection() {
         "Node.js",
         "Express",
         "Python",
-        "PostgreSQL",
         "MySQL",
-        "MongoDB",
-        "Redis",
       ],
     },
     {
@@ -39,10 +36,7 @@ export function SkillsSection() {
       title: "Database & APIs",
       skills: [
         "MySQL",
-        "PostgreSQL",
-        "MongoDB",
         "REST APIs",
-        "GraphQL",
         "CRUD Operations",
         "Database Design",
         "API Integration",
@@ -50,7 +44,7 @@ export function SkillsSection() {
     },
     {
       title: "Tools & DevOps",
-      skills: ["Git", "Docker", "AWS", "Vercel", "cPanel", "Linux", "Apache", "Nginx"],
+      skills: ["Git", "Vercel", "cPanel", "Linux", "Apache", "Nginx"],
     },
   ]
 

@@ -16,7 +16,7 @@ export function AboutSection() {
     { icon: Code, title: "Frontend Development", description: "React, Next.js, TypeScript, Tailwind CSS" },
     { icon: Database, title: "Backend Development", description: "Node.js, PHP, Laravel, CodeIgniter" },
     { icon: Palette, title: "UI/UX Design", description: "Figma, Adobe XD, Responsive Design" },
-    { icon: Smartphone, title: "Mobile Development", description: "React Native, Cross-platform Apps" },
+    { icon: Smartphone, title: "Mobile Development", description: "Flutter, Cross-platform Apps" },
   ]
 
   return (
@@ -80,7 +80,7 @@ export function AboutSection() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6">
-                  Let me tell you a bit about myself
+                  RYNA MOL
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
                   I specialize in creating modern, responsive web applications using cutting-edge technologies. My

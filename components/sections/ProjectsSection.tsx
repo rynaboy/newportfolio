@@ -6,16 +6,16 @@ import { ExternalLink, Github, ArrowRight, Star, Eye } from "lucide-react"
 export function ProjectsSection() {
   const projects = [
     {
-      id: "laravel-ecommerce",
-      title: "Laravel E-Commerce Platform",
+      id: "laravel-assetmanagement",
+      title: "Laravel Asset Mangeemnt Platform",
       description:
-        "Full-featured e-commerce platform built with Laravel, featuring admin dashboard, payment integration, and inventory management.",
-      image: "/placeholder.svg?height=400&width=600",
+        "Some-featured for assetmanagement system platform built with Laravel, featuring admin dashboard, Floor, Cagegory, and inventory management.",
+      image: "/assetdashborad.png?height=300&width=200",
       technologies: ["Laravel", "PHP", "MySQL", "Bootstrap", "Stripe API"],
       featured: true,
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      stats: { stars: 324, views: "15.2k" },
+      liveUrl: "https://assetmanagement.freelancelearn.biz/",
+      githubUrl: "#",
+      stats: { stars: 0, views: "10" },
       gradient: "from-red-600 to-orange-600",
     },
     {

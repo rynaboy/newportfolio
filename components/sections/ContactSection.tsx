@@ -18,14 +18,14 @@ export function ContactSection() {
     {
       icon: Mail,
       title: "Email",
-      value: "molryna@gmail.com",
-      link: "mailto:molryna@gmail.com",
+      value: "rynaboy22@gmail.com",
+      link: "mailto:rynaboy22@gmail.com",
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+855 12 345 678",
-      link: "tel:+85512345678",
+      value: "+855 96 98 94 789",
+      link: "tel:+855969894789",
     },
     {
       icon: MapPin,
@@ -204,7 +204,7 @@ export function ContactSection() {
               <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">
                 
                 <p className="text-green-700 dark:text-green-300 text-sm">
-                  I'm currently available for freelance projects and full-time opportunities.
+                  I'm currently available for freelance projects and part-time opportunities.
                 </p>
               </div>
             </div>
