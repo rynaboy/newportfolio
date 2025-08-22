@@ -202,10 +202,7 @@ export function ContactSection() {
 
               {/* Availability status */}
               <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <p className="text-green-800 dark:text-green-200 font-semibold">Available for work</p>
-                </div>
+                
                 <p className="text-green-700 dark:text-green-300 text-sm">
                   I'm currently available for freelance projects and full-time opportunities.
                 </p>
