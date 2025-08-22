@@ -160,12 +160,8 @@ export function HeroSection() {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 group cursor-pointer hover:scale-110 transition-all duration-300"
         >
           <div className="flex flex-col items-center gap-2 animate-bounce group-hover:animate-none">
-            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-              Scroll Down
-            </span>
-            <div className="w-6 h-10 border-2 border-slate-300 dark:border-slate-600 group-hover:border-blue-500 dark:group-hover:border-blue-400 rounded-full flex justify-center transition-colors">
-              <div className="w-1 h-3 bg-slate-400 dark:bg-slate-500 group-hover:bg-blue-500 dark:group-hover:bg-blue-400 rounded-full mt-2 animate-pulse transition-colors"></div>
-            </div>
+            
+         
           </div>
         </button>
       </div>
