@@ -1,199 +1,215 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, MapPin, Phone, Github, Linkedin, Send } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
+  const [mounted, setMounted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
-  }
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
-      value: "rynaboy22@gmail.com",
-      href: "mailto:rynaboy22@gmail.com",
+      title: "Email",
+      value: "molryna@gmail.com",
+      link: "mailto:molryna@gmail.com",
     },
     {
       icon: Phone,
-      label: "Phone",
-      value: "+(855) 96 9894-789",
-      href: "tel:+855969894789",
+      title: "Phone",
+      value: "+855 12 345 678",
+      link: "tel:+85512345678",
     },
     {
       icon: MapPin,
-      label: "Location",
-      value: "Pnhom Penh, Cambodia",
-      href: "#",
+      title: "Location",
+      value: "Phnom Penh, Cambodia",
+      link: "#",
     },
   ]
 
   const socialLinks = [
     {
       icon: Github,
-      label: "GitHub",
-      href: "https://github.com/rynaboy/",
+      title: "GitHub",
+      link: "https://github.com/molryna",
+      color: "hover:text-gray-900 dark:hover:text-gray-100",
     },
     {
       icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/mol-ryna-2296b51a1/?originalSubdomain=kh",
-    },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      href: "https://twitter.com",
+      title: "LinkedIn",
+      link: "https://linkedin.com/in/molryna",
+      color: "hover:text-blue-600",
     },
   ]
 
   return (
-    <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-900/50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
+    <section
+      id="contact"
+      className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+    >
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-pink-400/10 animate-gradient-x bg-300%"></div>
+
+      {/* Floating elements */}
+      <div className="absolute top-20 left-20 w-24 h-24 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full opacity-30 dark:from-blue-800 dark:to-blue-700 animate-float"></div>
+      <div className="absolute bottom-32 right-20 w-32 h-32 bg-gradient-to-br from-purple-200 to-purple-300 rounded-3xl opacity-20 dark:from-purple-800 dark:to-purple-700 animate-blob"></div>
+      <div className="absolute top-1/2 left-10 w-16 h-16 bg-gradient-to-br from-pink-200 to-pink-300 rounded-2xl opacity-40 dark:from-pink-800 dark:to-pink-700 animate-float-delayed"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div
+          className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          {/* Section header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-slate-900 dark:text-white">Get In</span>{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 animate-fadeInUp">
+              Get In{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Touch
+              </span>
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              Let's discuss your next project or just say hello
+            <p
+              className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed animate-fadeInUp"
+              style={{ animationDelay: "0.2s" }}
+            >
+              Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <Card className="border-0 shadow-xl">
-              <CardHeader>
-                <CardTitle className="text-2xl">Send Message</CardTitle>
-                <CardDescription>Fill out the form below and I'll get back to you as soon as possible.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact form */}
+            <Card
+              className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 animate-fadeInUp"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send me a message</h3>
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                      >
                         Name
                       </label>
-                      <Input id="name" name="name" value={formData.name} onChange={handleChange} required />
+                      <Input
+                        id="name"
+                        placeholder="Your name"
+                        className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
+                      />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                      >
                         Email
                       </label>
                       <Input
                         id="email"
-                        name="email"
                         type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
+                        placeholder="your@email.com"
+                        className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                       />
                     </div>
                   </div>
-
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    >
                       Subject
                     </label>
-                    <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} required />
+                    <Input
+                      id="subject"
+                      placeholder="Project discussion"
+                      className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
+                    />
                   </div>
-
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    >
                       Message
                     </label>
                     <Textarea
                       id="message"
-                      name="message"
+                      placeholder="Tell me about your project..."
                       rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
+                      className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors resize-none"
                     />
                   </div>
-
-                  <Button type="submit" className="w-full gap-2">
-                    <Send className="w-4 h-4" />
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                  >
+                    <Send className="w-5 h-5 mr-2 group-hover:animate-pulse" />
                     Send Message
                   </Button>
                 </form>
               </CardContent>
             </Card>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <Card className="border-0 shadow-xl">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Contact Information</CardTitle>
-                  <CardDescription>Feel free to reach out through any of these channels.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {contactInfo.map((item, index) => (
+            {/* Contact info */}
+            <div className="space-y-8 animate-fadeInUp" style={{ animationDelay: "0.6s" }}>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Contact Information</h3>
+                <div className="space-y-4">
+                  {contactInfo.map((info, index) => (
                     <a
                       key={index}
-                      href={item.href}
-                      className="flex items-center gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group"
+                      href={info.link}
+                      className="flex items-center gap-4 p-4 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md transition-all duration-300 hover:scale-105 group"
                     >
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                        <item.icon className="w-6 h-6 text-white" />
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                        <info.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <div className="font-medium text-slate-900 dark:text-white">{item.label}</div>
-                        <div className="text-slate-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {item.value}
-                        </div>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">{info.title}</p>
+                        <p className="text-slate-900 dark:text-white font-medium">{info.value}</p>
                       </div>
                     </a>
                   ))}
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
-              {/* Social Links */}
-              <Card className="border-0 shadow-xl">
-                <CardHeader>
-                  <CardTitle className="text-xl">Follow Me</CardTitle>
-                  <CardDescription>Connect with me on social media</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex gap-4">
-                    {socialLinks.map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all group"
-                      >
-                        <social.icon className="w-5 h-5" />
-                      </a>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Social links */}
+              <div>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Follow me</h4>
+                <div className="flex gap-4">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-12 h-12 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:shadow-md transition-all duration-300 hover:scale-110 text-slate-600 dark:text-slate-400 ${social.color} group`}
+                    >
+                      <social.icon className="w-6 h-6 group-hover:animate-bounce" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Availability status */}
+              <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <p className="text-green-800 dark:text-green-200 font-semibold">Available for work</p>
+                </div>
+                <p className="text-green-700 dark:text-green-300 text-sm">
+                  I'm currently available for freelance projects and full-time opportunities.
+                </p>
+              </div>
             </div>
           </div>
         </div>

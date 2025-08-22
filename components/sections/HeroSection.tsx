@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Download, Mail, Sparkles } from "lucide-react"
+import { Download, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
 
 function TypewriterSubtitle() {
@@ -66,51 +66,101 @@ export function HeroSection() {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      {/* Floating geometric shapes matching the design */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-purple-200 to-purple-300 rounded-3xl opacity-60 dark:from-purple-800 dark:to-purple-700" />
-      <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-br from-blue-200 to-blue-300 rounded-2xl opacity-50 rotate-45 dark:from-blue-800 dark:to-blue-700" />
-      <div className="absolute bottom-32 left-32 w-40 h-40 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full opacity-40 dark:from-pink-800 dark:to-pink-700" />
-      <div className="absolute bottom-40 right-20 w-28 h-28 bg-gradient-to-br from-green-200 to-green-300 rounded-3xl opacity-50 rotate-12 dark:from-green-800 dark:to-green-700" />
-      <div className="absolute top-1/2 left-10 w-20 h-20 bg-gradient-to-br from-yellow-200 to-orange-300 rounded-2xl opacity-60 dark:from-yellow-800 dark:to-orange-700" />
-      <div className="absolute top-1/3 right-10 w-36 h-36 bg-gradient-to-br from-indigo-200 to-indigo-300 rounded-full opacity-30 dark:from-indigo-800 dark:to-indigo-700" />
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 animate-gradient-x bg-300%"></div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className={`absolute w-2 h-2 bg-blue-400/30 rounded-full animate-float ${
+              i % 2 === 0 ? "animation-delay-2000" : "animation-delay-4000"
+            }`}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDuration: `${4 + Math.random() * 4}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating geometric shapes with enhanced animations */}
+      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-purple-200 to-purple-300 rounded-3xl opacity-60 dark:from-purple-800 dark:to-purple-700 animate-float" />
+      <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-br from-blue-200 to-blue-300 rounded-2xl opacity-50 rotate-45 dark:from-blue-800 dark:to-blue-700 animate-float-delayed" />
+      <div className="absolute bottom-32 left-32 w-40 h-40 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full opacity-40 dark:from-pink-800 dark:to-pink-700 animate-blob" />
+      <div className="absolute bottom-40 right-20 w-28 h-28 bg-gradient-to-br from-green-200 to-green-300 rounded-3xl opacity-50 rotate-12 dark:from-green-800 dark:to-green-700 animate-float animation-delay-2000" />
+      <div className="absolute top-1/2 left-10 w-20 h-20 bg-gradient-to-br from-yellow-200 to-orange-300 rounded-2xl opacity-60 dark:from-yellow-800 dark:to-orange-700 animate-blob animation-delay-4000" />
+      <div className="absolute top-1/3 right-10 w-36 h-36 bg-gradient-to-br from-indigo-200 to-indigo-300 rounded-full opacity-30 dark:from-indigo-800 dark:to-indigo-700 animate-float-delayed" />
+
+      {/* Additional animated elements */}
+      <div
+        className="absolute top-10 left-1/2 w-16 h-16 bg-gradient-to-br from-cyan-200 to-cyan-300 rounded-full opacity-40 dark:from-cyan-800 dark:to-cyan-700 animate-bounce"
+        style={{ animationDelay: "1s" }}
+      />
+      <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-gradient-to-br from-rose-200 to-rose-300 rounded-2xl opacity-50 dark:from-rose-800 dark:to-rose-700 animate-pulse" />
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div
           className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          {/* Status indicator */}
-          <div className="inline-flex items-center gap-3 bg-white/80 text-slate-600 dark:text-slate-300 px-6 py-3 rounded-full text-sm font-medium mb-12  hover:shadow-md transition-all duration-300">
-           
+          {/* Status indicator with shimmer effect */}
+          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm text-slate-600 dark:text-slate-300 px-6 py-3 rounded-full text-sm font-medium mb-12 hover:shadow-md transition-all duration-300 border border-white/20">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span>Available for work</span>
           </div>
 
-          {/* Main heading */}
-          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight tracking-tight">
+          {/* Main heading with enhanced animation */}
+          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight tracking-tight animate-fadeInUp">
             <span className="text-slate-900 dark:text-white">Hi, I'm</span>
           </h1>
 
-          {/* Name with gradient */}
-          <h2 className="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tight">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          {/* Name with animated gradient */}
+          <h2
+            className="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tight animate-fadeInUp"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <span className="animate-shimmer bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Ryna Mol
             </span>
           </h2>
 
           {/* Animated subtitle */}
-          <div className="mb-8">
+          <div className="mb-8 animate-fadeInUp" style={{ animationDelay: "0.4s" }}>
             <TypewriterSubtitle />
           </div>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-normal">
+          {/* Description with fade in */}
+          <p
+            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed font-normal animate-fadeInUp"
+            style={{ animationDelay: "0.6s" }}
+          >
             crafting beautiful digital experiences with modern technologies
           </p>
 
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          {/* CTA buttons with staggered animation */}
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fadeInUp"
+            style={{ animationDelay: "0.8s" }}
+          >
             <Button
               size="lg"
               className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-0"
+              onClick={() => {
+                const contactSection = document.getElementById("contact")
+                if (contactSection) {
+                  const headerOffset = 80
+                  const elementPosition = contactSection.offsetTop
+                  const offsetPosition = elementPosition - headerOffset
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                  })
+                }
+              }}
             >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <span className="relative z-10 flex items-center gap-3">
                 <Mail className="w-5 h-5" />
                 Get In Touch
@@ -119,23 +169,28 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="group bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 hover:bg-white/80 dark:hover:bg-slate-800/80 px-8 py-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+              className="group bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 hover:bg-white/80 dark:hover:bg-slate-800/80 px-8 py-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105"
             >
-              <Download className="w-5 h-5 mr-3" />
+              <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
               Download CV
             </Button>
           </div>
 
-          {/* Stats cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {/* Stats cards with enhanced animations */}
+          <div
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto animate-fadeInUp"
+            style={{ animationDelay: "1s" }}
+          >
             {[
               { number: "5+", label: "Years Experience" },
               { number: "50+", label: "Projects Completed" },
               { number: "20+", label: "Happy Clients" },
             ].map((stat, index) => (
               <div key={index} className="group">
-                <div className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <div className="text-4xl md:text-5xl font-black text-blue-600 mb-2">{stat.number}</div>
+                <div className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:bg-white/80 dark:hover:bg-slate-800/80">
+                  <div className="text-4xl md:text-5xl font-black text-blue-600 mb-2 group-hover:animate-pulse">
+                    {stat.number}
+                  </div>
                   <div className="text-sm text-slate-600 dark:text-slate-400 font-medium">{stat.label}</div>
                 </div>
               </div>
@@ -143,7 +198,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Enhanced scroll indicator */}
         <button
           onClick={() => {
             const aboutSection = document.getElementById("about")
@@ -160,8 +215,12 @@ export function HeroSection() {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 group cursor-pointer hover:scale-110 transition-all duration-300"
         >
           <div className="flex flex-col items-center gap-2 animate-bounce group-hover:animate-none">
-            
-         
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Scroll Down
+            </span>
+            <div className="w-6 h-10 border-2 border-slate-300 dark:border-slate-600 group-hover:border-blue-500 dark:group-hover:border-blue-400 rounded-full flex justify-center transition-colors">
+              <div className="w-1 h-3 bg-slate-400 dark:bg-slate-500 group-hover:bg-blue-500 dark:group-hover:bg-blue-400 rounded-full mt-2 animate-pulse transition-colors"></div>
+            </div>
           </div>
         </button>
       </div>
