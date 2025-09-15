@@ -39,13 +39,13 @@ export function ContactSection() {
     {
       icon: Github,
       title: "GitHub",
-      link: "https://github.com/molryna",
+      link: "https://github.com/rynaboy",
       color: "hover:text-gray-900 dark:hover:text-gray-100",
     },
     {
       icon: Linkedin,
       title: "LinkedIn",
-      link: "https://linkedin.com/in/molryna",
+      link: "https://www.linkedin.com/in/mol-ryna-2296b51a1/",
       color: "hover:text-blue-600",
     },
   ]
