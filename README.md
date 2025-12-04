@@ -12,7 +12,7 @@ Modern portfolio website built with Next.js 15, React 19, TypeScript, and Tailwi
 - 📄 Social media page with QR code support
 
 ## Tech Stack
-
+ 
 - **Framework**: Next.js 15.2.4
 - **React**: 19
 - **TypeScript**: 5
