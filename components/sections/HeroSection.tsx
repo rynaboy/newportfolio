@@ -59,9 +59,17 @@ function TypewriterSubtitle() {
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false)
+  const [particles, setParticles] = useState<Array<{ left: string; top: string; duration: string }>>([])
 
   useEffect(() => {
     setMounted(true)
+    // Generate random particle positions only on client side
+    const particleData = Array.from({ length: 20 }, () => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: `${4 + Math.random() * 4}s`,
+    }))
+    setParticles(particleData)
   }, [])
 
   return (
@@ -73,21 +81,23 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 animate-gradient-x bg-300%"></div>
 
       {/* Floating particles */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-2 h-2 bg-blue-400/30 rounded-full animate-float ${
-              i % 2 === 0 ? "animation-delay-2000" : "animation-delay-4000"
-            }`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDuration: `${4 + Math.random() * 4}s`,
-            }}
-          />
-        ))}
-      </div>
+      {mounted && (
+        <div className="absolute inset-0">
+          {particles.map((particle, i) => (
+            <div
+              key={i}
+              className={`absolute w-2 h-2 bg-blue-400/30 rounded-full animate-float ${
+                i % 2 === 0 ? "animation-delay-2000" : "animation-delay-4000"
+              }`}
+              style={{
+                left: particle.left,
+                top: particle.top,
+                animationDuration: particle.duration,
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Floating geometric shapes with enhanced animations */}
       <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-purple-200 to-purple-300 rounded-3xl opacity-60 dark:from-purple-800 dark:to-purple-700 animate-float" />
