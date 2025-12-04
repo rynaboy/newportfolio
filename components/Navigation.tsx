@@ -120,8 +120,10 @@ export function Navigation() {
                       e.preventDefault()
                       scrollToSection(item.href)
                     } else {
-                      // For non-anchor links like /social, navigate normally
-                      // The link will handle navigation
+                      // For non-anchor links like /social, use router
+                      e.preventDefault()
+                      router.push(item.href)
+                      setIsOpen(false)
                     }
                   }}
                   className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-2 py-2 text-sm xl:text-base font-medium transition-all duration-300 hover:scale-105 relative group whitespace-nowrap"
@@ -178,7 +180,9 @@ export function Navigation() {
                     e.preventDefault()
                     scrollToSection(item.href)
                   } else {
-                    // For non-anchor links like /social, close menu and navigate
+                    // For non-anchor links like /social, use router
+                    e.preventDefault()
+                    router.push(item.href)
                     setIsOpen(false)
                   }
                 }}

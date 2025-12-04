@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { 
   MessageCircle, 
@@ -12,6 +13,7 @@ import {
 import { useEffect, useState } from "react"
 
 export function SocialSection() {
+  const router = useRouter()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -175,13 +177,18 @@ export function SocialSection() {
 
           {/* Back to home link */}
           <div className="text-center mt-12 animate-fadeInUp" style={{ animationDelay: "1s" }}>
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-medium"
+            <button
+              onClick={() => {
+                router.push("/")
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }, 100)
+              }}
+              className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-medium cursor-pointer"
             >
               <span>←</span>
               <span>Back to Home</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
