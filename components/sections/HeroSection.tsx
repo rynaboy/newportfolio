@@ -65,7 +65,10 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center pt-24 md:pt-32 pb-16 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+    >
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 animate-gradient-x bg-300%"></div>
 
@@ -106,13 +109,13 @@ export function HeroSection() {
           className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >          
           {/* Main heading with enhanced animation */}
-          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight tracking-tight animate-fadeInUp">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 leading-snug tracking-tight animate-fadeInUp">
             <span className="text-slate-900 dark:text-white">Hi, I'm</span>
           </h1>
 
           {/* Name with animated gradient */}
           <h2
-            className="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tight animate-fadeInUp"
+            className="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 sm:mb-8 leading-snug tracking-tight animate-fadeInUp"
             style={{ animationDelay: "0.2s" }}
           >
             <span className="animate-shimmer bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
