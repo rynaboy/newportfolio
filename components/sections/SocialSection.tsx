@@ -168,14 +168,12 @@ export function SocialSection() {
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
                     Bank QR Code
                   </h3>
-                  <div className="w-48 h-48 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center border-2 border-dashed border-slate-300 dark:border-slate-600 mb-4 overflow-hidden">
-                    {/* Replace this div with: <img src="/your-qr-code.png" alt="Bank QR Code" className="w-full h-full object-contain" /> */}
-                    <div className="text-center p-4">
-                      <QrCode className="w-16 h-16 text-slate-400 dark:text-slate-500 mx-auto mb-2" />
-                      <p className="text-xs text-slate-500 dark:text-slate-400">
-                        Add your QR code image here
-                      </p>
-                    </div>
+                  <div className="w-48 h-48 bg-white dark:bg-slate-700 rounded-xl flex items-center justify-center border-2 border-slate-200 dark:border-slate-600 mb-4 overflow-hidden shadow-sm">
+                    <img 
+                      src="/molryna.jpg" 
+                      alt="Bank QR Code - ABA PAY" 
+                      className="w-full h-full object-contain p-2"
+                    />
                   </div>
                   <p className="text-sm text-slate-500 dark:text-slate-400">
                     Scan to make payment
