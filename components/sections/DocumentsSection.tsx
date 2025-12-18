@@ -2,9 +2,25 @@
 
 import { useRouter } from "next/navigation"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { FileText, Download, Eye } from "lucide-react"
+import { Folder, ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
+
+// Shared folder data - can be moved to a separate file if needed
+export const documentFolders = [
+  {
+    folderName: "Advanced Web Programming",
+    folderSlug: "advancewebprogramming",
+    description: "Laravel framework tutorials and guides",
+    documentCount: 8,
+  },
+  // Add more folders here in the future
+  // {
+  //   folderName: "PHP Web Programming",
+  //   folderSlug: "phpwebprogramming",
+  //   description: "PHP programming tutorials",
+  //   documentCount: 5,
+  // },
+]
 
 export function DocumentsSection() {
   const router = useRouter()
@@ -14,60 +30,8 @@ export function DocumentsSection() {
     setMounted(true)
   }, [])
 
-  const documents = [
-    {
-      title: "Chapter 1: How to Install",
-      path: "/document/advancewebprogramming/Chapter 1 How to install.pdf",
-      category: "Advanced Web Programming",
-    },
-    {
-      title: "Chapter 2: Route",
-      path: "/document/advancewebprogramming/Chapter 2 Route.pdf",
-      category: "Advanced Web Programming",
-    },
-    {
-      title: "Chapter 3: View Template",
-      path: "/document/advancewebprogramming/Chapter 3 View Template.pdf",
-      category: "Advanced Web Programming",
-    },
-    {
-      title: "Chapter 4: MVC & Created Migration",
-      path: "/document/advancewebprogramming/Chapter 4 MVC & created Migration.pdf",
-      category: "Advanced Web Programming",
-    },
-    {
-      title: "Chapter 5: CRUD",
-      path: "/document/advancewebprogramming/Chapter 5 CRUD.pdf",
-      category: "Advanced Web Programming",
-    },
-    {
-      title: "Chapter 6: Auth",
-      path: "/document/advancewebprogramming/Chapter 6 Auth.pdf",
-      category: "Advanced Web Programming",
-    },
-    {
-      title: "Chapter 7: Laravel File Upload & Storage",
-      path: "/document/advancewebprogramming/Chapter 7- Laravel File Upload & Storage.pdf",
-      category: "Advanced Web Programming",
-    },
-    {
-      title: "Chapter 8: Laravel with Datatable",
-      path: "/document/advancewebprogramming/Chapter 8 Laravel with Datatable.pdf",
-      category: "Advanced Web Programming",
-    },
-  ]
-
-  const handleView = (path: string) => {
-    window.open(path, "_blank")
-  }
-
-  const handleDownload = (path: string, title: string) => {
-    const link = document.createElement("a")
-    link.href = path
-    link.download = `${title}.pdf`
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+  const handleFolderClick = (folderSlug: string) => {
+    router.push(`/documents/${folderSlug}`)
   }
 
   return (
@@ -92,52 +56,39 @@ export function DocumentsSection() {
               className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed animate-fadeInUp"
               style={{ animationDelay: "0.2s" }}
             >
-              Browse and download educational documents and resources.
+              Browse document folders and access educational resources.
             </p>
           </div>
 
-          {/* Documents Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-7xl mx-auto">
-            {documents.map((doc, index) => (
+          {/* Folders Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto">
+            {documentFolders.map((folder, index) => (
               <Card
-                key={doc.title}
-                className="h-full bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-fadeInUp"
+                key={folder.folderSlug}
+                onClick={() => handleFolderClick(folder.folderSlug)}
+                className="h-full bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer animate-fadeInUp group"
                 style={{ animationDelay: `${0.3 + index * 0.1}s` }}
               >
-                <CardContent className="p-6 flex flex-col h-full">
-                  {/* Icon */}
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4 shadow-lg">
-                    <FileText className="w-8 h-8 text-white" />
+                <CardContent className="p-8 flex flex-col items-center text-center min-h-[250px] justify-center">
+                  {/* Folder Icon */}
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Folder className="w-10 h-10 text-white" />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                    {doc.title}
+                  {/* Folder Name */}
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                    {folder.folderName}
                   </h3>
 
-                  {/* Category */}
+                  {/* Description */}
                   <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
-                    {doc.category}
+                    {folder.description}
                   </p>
 
-                  {/* Actions */}
-                  <div className="mt-auto flex gap-2">
-                    <Button
-                      onClick={() => handleView(doc.path)}
-                      variant="outline"
-                      className="flex-1 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-300"
-                    >
-                      <Eye className="w-4 h-4 mr-2" />
-                      View
-                    </Button>
-                    <Button
-                      onClick={() => handleDownload(doc.path, doc.title)}
-                      variant="default"
-                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white transition-all duration-300"
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Download
-                    </Button>
+                  {/* Document Count */}
+                  <div className="mt-auto flex items-center gap-2 text-blue-600 dark:text-blue-400 font-medium">
+                    <span>{folder.documentCount} {folder.documentCount === 1 ? "document" : "documents"}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
                 </CardContent>
               </Card>
@@ -164,4 +115,3 @@ export function DocumentsSection() {
     </section>
   )
 }
-
