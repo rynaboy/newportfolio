@@ -16,6 +16,7 @@ function TypewriterSubtitle() {
     "Web Developer & Digital Creator",
     "Database Designer & API Developer",
     "Mobile Developer & Cross-Platform Expert",
+    "Lecture & Teacher at Western University",
   ]
 
   const [currentTitle, setCurrentTitle] = useState("")
