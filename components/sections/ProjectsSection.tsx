@@ -75,7 +75,7 @@ export function ProjectsSection() {
       technologies: ["Next.js", "JSON data", "Tailwind CSS", "Vercel"],
       featured: false,
       liveUrl: "https://tholsopanha.vercel.app/",
-      githubUrl: "#",
+      githubUrl: "#", 
       stats: { stars: 0, views: "0" },
       gradient: "from-purple-600 to-pink-600",
     },
