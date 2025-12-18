@@ -55,6 +55,30 @@ export function ProjectsSection() {
       stats: { stars: 134, views: "6.1k" },
       gradient: "from-green-500 to-blue-500",
     },
+    {
+      id: "sophearen_profile",
+      title: "Kou Sophearen Profile",
+      description: "Make the profile for Kou Sophearen. With link social media and contact information.",
+      image: "/sophearen.png?height=300&width=500",
+      technologies: ["Next.js", "JSON data", "Tailwind CSS", "Vercel"],
+      featured: false,
+      liveUrl: "https://kousophearen.vercel.app/",
+      githubUrl: "#",
+      stats: { stars: 0, views: "0" },
+      gradient: "from-purple-600 to-pink-600",
+    },
+    {
+      id: "panha_profile",
+      title: "Thol Sopanha Profile",
+      description: "Make the profile for Thol Sopanha. With link social media and contact information.",
+      image: "/panha.png?height=300&width=500",
+      technologies: ["Next.js", "JSON data", "Tailwind CSS", "Vercel"],
+      featured: false,
+      liveUrl: "https://tholsopanha.vercel.app/",
+      githubUrl: "#",
+      stats: { stars: 0, views: "0" },
+      gradient: "from-purple-600 to-pink-600",
+    },
   ]
 
   const featuredProject = projects.find((p) => p.featured)
