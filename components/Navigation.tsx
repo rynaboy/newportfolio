@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react"
-
 export function Navigation() {
   const router = useRouter()
   const pathname = usePathname()
