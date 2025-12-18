@@ -31,11 +31,28 @@ export function Navigation() {
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/molryna", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/molryna", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:molryna@gmail.com", label: "Email" },
+    { icon: Linkedin, href: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:rynaboy22@gmail.com", label: "Email" },
   ]
 
   const scrollToSection = (href: string) => {
+    // Helper function to scroll to an element
+    const scrollToElement = (elementId: string) => {
+      const element = document.querySelector(elementId)
+      if (element) {
+        const headerOffset = 80
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        })
+        return true
+      }
+      return false
+    }
+
     // Special handling for Home - navigate to home page and scroll to top
     if (href === "#home" || href === "/") {
       // If we're on a different page (like /social), navigate to home first
@@ -60,20 +77,58 @@ export function Navigation() {
       return
     }
 
-    // For other sections, find the element and scroll to it
-    const element = document.querySelector(href)
-    if (element) {
-      const headerOffset = 80
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
+    // For anchor links, check if we're on the home page
+    if (pathname !== "/") {
+      // Store the target section in sessionStorage
+      sessionStorage.setItem("scrollToSection", href)
+      // Navigate to home page
+      router.push("/")
+      // Wait for navigation and DOM to be ready, then scroll to the section
+      setTimeout(() => {
+        let attempts = 0
+        const maxAttempts = 10
+        const tryScroll = () => {
+          attempts++
+          if (scrollToElement(href)) {
+            sessionStorage.removeItem("scrollToSection")
+          } else if (attempts < maxAttempts) {
+            setTimeout(tryScroll, 100)
+          } else {
+            sessionStorage.removeItem("scrollToSection")
+          }
+        }
+        tryScroll()
+      }, 300)
+      setIsOpen(false)
+      return
     }
+
+    // If we're already on home page, find the element and scroll to it
+    scrollToElement(href)
     setIsOpen(false)
   }
+
+  // Effect to handle scrolling after navigation from other pages
+  useEffect(() => {
+    const scrollTarget = sessionStorage.getItem("scrollToSection")
+    if (scrollTarget && pathname === "/") {
+      sessionStorage.removeItem("scrollToSection")
+      // Wait for page to fully render
+      setTimeout(() => {
+        const element = document.querySelector(scrollTarget)
+        if (element) {
+          const headerOffset = 80
+          const elementPosition = element.getBoundingClientRect().top
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          })
+        }
+      }, 300)
+    }
+  }, [pathname])
 
   return (
     <nav
