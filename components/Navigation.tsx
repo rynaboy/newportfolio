@@ -26,6 +26,7 @@ export function Navigation() {
     { name: "Projects", href: "#projects", isAnchor: true },
     { name: "Experience", href: "#experience", isAnchor: true },
     { name: "Contact", href: "#contact", isAnchor: true },
+    { name: "Documents", href: "/documents", isAnchor: false },
     { name: "Social", href: "/social", isAnchor: false },
   ]
 
