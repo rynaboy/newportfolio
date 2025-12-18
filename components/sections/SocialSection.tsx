@@ -47,7 +47,6 @@ export function SocialSection() {
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
   const [particles, setParticles] = useState<Array<{ left: string; top: string; duration: string }>>([])
-
   useEffect(() => {
     setMounted(true)
     // Generate random particle positions only on client side
