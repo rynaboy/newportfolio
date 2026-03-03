@@ -177,6 +177,14 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="lg"
+              onClick={() => {
+                const link = document.createElement("a")
+                link.href = "/MOLRYNA.pdf"
+                link.download = "MOLRYNA.pdf"
+                document.body.appendChild(link)
+                link.click()
+                document.body.removeChild(link)
+              }}
               className="group bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 hover:bg-white/80 dark:hover:bg-slate-800/80 px-8 py-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105"
             >
               <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
@@ -190,9 +198,9 @@ export function HeroSection() {
             style={{ animationDelay: "1s" }}
           >
             {[
-              { number: "5+", label: "Years Experience" },
-              { number: "50+", label: "Projects Completed" },
-              { number: "20+", label: "Happy Clients" },
+              { number: "6+", label: "Years Experience" },
+              { number: "70+", label: "Projects Completed" },
+              { number: "50+", label: "Happy Clients" },
             ].map((stat, index) => (
               <div key={index} className="group">
                 <div className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:bg-white/80 dark:hover:bg-slate-800/80">
