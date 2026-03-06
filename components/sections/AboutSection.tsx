@@ -52,7 +52,6 @@ export function AboutSection() {
               a difference. I love turning complex problems into simple, beautiful, and intuitive designs.
             </p>
           </div>
-
           {/* Skills grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {skills.map((skill, index) => (
