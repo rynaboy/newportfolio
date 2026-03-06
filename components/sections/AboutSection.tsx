@@ -70,7 +70,6 @@ export function AboutSection() {
               </Card>
             ))}
           </div>
-
           {/* Personal info */}
           <div
             className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 animate-fadeInUp"
