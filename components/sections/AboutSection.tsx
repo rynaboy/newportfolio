@@ -16,7 +16,6 @@ export function AboutSection() {
     { icon: Palette, title: "UI/UX Design", description: "Figma, Adobe XD, Responsive Design" },
     { icon: Smartphone, title: "Mobile Development", description: "Flutter, Cross-platform Apps" },
   ]
-
   return (
     <section
       id="about"
