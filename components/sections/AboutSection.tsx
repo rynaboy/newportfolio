@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Code, Palette, Database, Smartphone } from "lucide-react"
 import { useEffect, useState } from "react"
 
+
 export function AboutSection() {
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
