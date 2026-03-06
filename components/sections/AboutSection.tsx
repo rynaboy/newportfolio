@@ -10,7 +10,6 @@ export function AboutSection() {
   useEffect(() => {
     setMounted(true)
   }, [])
-
   const skills = [
     { icon: Code, title: "Frontend Development", description: "React, Next.js, TypeScript, Tailwind CSS" },
     { icon: Database, title: "Backend Development", description: "Node.js, PHP, Laravel, CodeIgniter" },
