@@ -93,4 +93,5 @@ Edit `components/sections/SocialSection.tsx` and update the `socialLinks` array 
 
 ## License
 
-Private project - All rights reserved
+Public project - All rights reserved 
+Power by Ryna Mol
