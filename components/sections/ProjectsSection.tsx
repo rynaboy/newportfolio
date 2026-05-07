@@ -6,13 +6,26 @@ import { ExternalLink, Github, ArrowRight, Star, Eye } from "lucide-react"
 export function ProjectsSection() {
   const projects = [
     {
+      id: "Ditribution Management System",
+      title: "Laravel Distribution Management Platform",
+      description:
+        "Some-featured for distribution system platform built with Laravel, featuring admin dashboard, staff, Category, and inventory management, role permission level, sales, purchasing, stock movement, commission based.",
+      image: "/distributionsystem.png?height=300&width=200",
+      technologies: ["Laravel", "PHP", "MySQL", "Bootstrap", 'tailwind css', "JWT", "Spatie Permission", "phpunit"],
+      featured: true,
+      liveUrl: "https://milktea.phpcode.shop/login/",
+      githubUrl: "#",
+      stats: { stars: 0, views: "10" },
+      gradient: "from-red-600 to-orange-600",
+    },
+    {
       id: "laravel-assetmanagement",
       title: "Laravel Asset Mangeemnt Platform",
       description:
         "Some-featured for assetmanagement system platform built with Laravel, featuring admin dashboard, Floor, Cagegory, and inventory management.",
       image: "/assetdashborad.png?height=300&width=200",
       technologies: ["Laravel", "PHP", "MySQL", "Bootstrap", "Stripe API"],
-      featured: true,
+      featured: false,
       liveUrl: "https://assetmanagement.phpcode.shop/",
       githubUrl: "#",
       stats: { stars: 0, views: "10" },
