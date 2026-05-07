@@ -5,14 +5,24 @@ import { Building, Calendar } from "lucide-react"
 export function ExperienceSection() {
   const experiences = [
     {
+      title: "IT Manager & Full-Stack Developer",
+      company: "TANADA Property Co,.Ltd.",
+      period: "2026 - Present",
+      location: "Pnhom Penh, Cambodia",
+      description:
+        "Leading development of scalable web applications and mobile app. Using Next.js, Node.js, Laravel Framework, Phyton, React Native, and Flutter. Mentoring junior developers and architecting for complex business requirements.",
+      technologies: ["Laravel", "Next.js", "React Native", "Flutter", "TypeScript", "Cpanel", "PostgreSQL", "Git", "RawSQL", "sqlite"],
+      current: true,
+    },
+    {
       title: "Project Manager & Full-Stack Developer",
       company: "Technology Solution Development TSD Co,.Ltd.",
-      period: "2020 - Present",
+      period: "2020 - 2026",
       location: "Pnhom Penh, Cambodia",
       description:
         "Leading development of scalable web applications using PHP, Next.js, and Node.js. Mentoring junior developers and architecting solutions for complex business requirements.",
       technologies: ["PHP", "Next.js", "TypeScript", "Cpanel", "PostgreSQL"],
-      current: true,
+      current: false,
     },
     {
       title: "Full-Stack Developer",
