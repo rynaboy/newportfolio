@@ -267,14 +267,3 @@ export function Navigation() {
     </nav>
   )
 }
-
-export const openGraph = {
-  title: 'MOL RYNA Portfolio',
-  description: 'Created with Next.js by MOL RYNA',
-  type: 'website',
-  images: [{
-    url: '/molryna.ico',  // Create a 1200x630px image in public/
-    width: 1200,
-    height: 630,
-  }],
-}
