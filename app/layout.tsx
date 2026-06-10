@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     apple: '/molryna.ico',
   },
 }
-
+ 
 export default function RootLayout({
   children,
 }: Readonly<{
