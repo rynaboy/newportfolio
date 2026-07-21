@@ -29,9 +29,19 @@ export function Navigation() {
   ]
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/rynaboy", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/mol-ryna-2296b51a1/", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:rynaboy22@gmail.com", label: "Email" },
+    { 
+      icon: Github, 
+      href: "https://github.com/rynaboy", 
+      label: "GitHub",
+      color: "hover:text-gray-900 dark:hover:text-gray-100"},
+    { icon: Linkedin, 
+      href: "https://www.linkedin.com/in/mol-ryna-2296b51a1/", 
+      label: "LinkedIn",
+      color: "hover:text-blue-600"},
+    { icon: Mail,
+      href: "mailto:rynaboy22@gmail.com", 
+      label: "Email",
+      color: "hover:text-gray-900 dark:hover:text-gray-100"},
   ]
 
   const scrollToSection = (href: string) => {
@@ -156,7 +166,7 @@ export function Navigation() {
                   }, 100)
                 }
               }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:animate-pulse transition-all duration-300"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:animate-pulse hover:shadow-md transition-all duration-300"
             >
               Ryna
             </a>
@@ -180,10 +190,12 @@ export function Navigation() {
                       setIsOpen(false)
                     }
                   }}
-                  className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-2 py-2 text-sm xl:text-base font-medium transition-all duration-300 hover:scale-105 relative group whitespace-nowrap"
+                  className="text-slate-700 dark:text-slate-300 duration-300 hover:text-blue-600 dark:hover:text-blue-400 px-2 py-2 text-sm xl:text-base font-medium transition-all duration-300 hover:scale-105 relative group whitespace-nowrap hover:shadow-md rounded-md"
                 >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                  <div>
+                    <span className="group-hover:animate-bounce">{item.name}</span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300 "></span>
+                  </div>
                 </a>
               ))}
             </div>
@@ -197,10 +209,10 @@ export function Navigation() {
                 href={social.href}
                 target={social.href.startsWith("mailto:") ? "_blank" : "_blank"}
                 rel="noopener noreferrer"
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
+                className={`w-12 h-12 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center hover:shadow-md transition-all duration-300 hover:scale-110 text-slate-600 dark:text-slate-400 group ${social.color}`}
                 aria-label={social.label}
               >
-                <social.icon className="w-5 h-5" />
+                <social.icon className="w-5 h-5 group-hover:animate-bounce" />
               </a>
             ))}
           </div>
@@ -247,14 +259,14 @@ export function Navigation() {
             ))}
 
             {/* Mobile Social Links */}
-            <div className="flex items-center justify-center space-x-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+            <div className="flex items-center justify-center space-x-4 pt-4 border-t border-slate-200 dark:border-slate-700" style={{ animationDelay: "0.6s" }}>
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className={`text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 ${social.color}`}
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />

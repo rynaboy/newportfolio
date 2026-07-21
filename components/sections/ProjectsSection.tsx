@@ -248,17 +248,6 @@ export function ProjectsSection() {
                         Demo
                       </a>
                     </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      asChild
-                      className="flex-1 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                    >
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="gap-2">
-                        <Github className="w-3 h-3" />
-                        Code
-                      </a>
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -273,11 +262,11 @@ export function ProjectsSection() {
               className="group bg-white/50 dark:bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/80 dark:hover:bg-white/20 px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <a href={`https://github.com/rynaboy?tab=repositories`} target="_blank" rel="noopener noreferrer" className="gap-2">
-              </a>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
                 View All Projects
               </span>
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </div>
         </div>
