@@ -13,7 +13,7 @@ export function ProjectsSection() {
       image: "/distributionsystem.png?height=300&width=200",
       technologies: ["Laravel", "PHP", "MySQL", "Bootstrap", 'tailwind css', "JWT", "Spatie Permission", "phpunit"],
       featured: true,
-      liveUrl: "https://milktea.phpcode.shop/login/",
+      liveUrl: "https://pos.molryna.com/login",
       githubUrl: "#",
       stats: { stars: 0, views: "10" },
       gradient: "from-red-600 to-orange-600",
@@ -26,7 +26,7 @@ export function ProjectsSection() {
       image: "/assetdashborad.png?height=300&width=200",
       technologies: ["Laravel", "PHP", "MySQL", "Bootstrap", "Stripe API"],
       featured: false,
-      liveUrl: "https://assetmanagement.phpcode.shop/",
+      liveUrl: "http://asset.molryna.com/login",
       githubUrl: "#",
       stats: { stars: 0, views: "10" },
       gradient: "from-red-600 to-orange-600",
@@ -41,7 +41,7 @@ export function ProjectsSection() {
       featured: false,
       liveUrl: "https://360monica.com/",
       githubUrl: "#",
-      stats: { stars: 189, views: "9.8k" },
+      stats: { stars: 0, views: "20" },
       gradient: "from-blue-600 to-purple-600",
     },
     {
@@ -53,7 +53,7 @@ export function ProjectsSection() {
       featured: false,
       liveUrl: "#",
       githubUrl: "#",
-      stats: { stars: 156, views: "7.3k" },
+      stats: { stars: 0, views: "40" },
       gradient: "from-purple-600 to-pink-600",
     },
     {
@@ -65,7 +65,7 @@ export function ProjectsSection() {
       featured: false,
       liveUrl: "https://molryna.phpcode.shop/",
       githubUrl: "https://github.com/rynaboy/newportfolio",
-      stats: { stars: 134, views: "6.1k" },
+      stats: { stars: 1, views: "40" },
       gradient: "from-green-500 to-blue-500",
     },
     {
@@ -181,12 +181,6 @@ export function ProjectsSection() {
                             Live Demo
                           </a>
                         </Button>
-                        <Button
-                          variant="outline"
-                          asChild
-                          className="hover:bg-slate-50 dark:hover:bg-slate-800 hover:scale-105 transition-all duration-300"
-                        >
-                        </Button>
                       </div>
                     </CardContent>
                   </div>
@@ -273,11 +267,13 @@ export function ProjectsSection() {
 
           {/* Enhanced view all projects button */}
           <div className="text-center">
-            <Button
+            <Button 
               variant="outline"
               size="lg"
               className="group bg-white/50 dark:bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/80 dark:hover:bg-white/20 px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
+              <a href={`https://github.com/rynaboy?tab=repositories`} target="_blank" rel="noopener noreferrer" className="gap-2">
+              </a>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
                 View All Projects
               </span>
