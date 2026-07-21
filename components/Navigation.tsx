@@ -29,8 +29,8 @@ export function Navigation() {
   ]
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/molryna", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/rynaboy", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/mol-ryna-2296b51a1/", label: "LinkedIn" },
     { icon: Mail, href: "mailto:rynaboy22@gmail.com", label: "Email" },
   ]
 

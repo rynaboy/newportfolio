@@ -109,7 +109,7 @@ export function ProjectsSection() {
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Star className="w-4 h-4" />
-              My Work
+              My Personal Projects
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
               <span className="text-slate-900 dark:text-white">Featured</span>{" "}
@@ -118,7 +118,7 @@ export function ProjectsSection() {
               </span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              A showcase of my recent work and personal projects that demonstrate my skills and passion
+              Explore a selection of my recent projects that demonstrate my technical expertise, problem-solving abilities, and commitment to creating modern, high-quality web applications.
             </p>
           </div>
 
@@ -186,15 +186,6 @@ export function ProjectsSection() {
                           asChild
                           className="hover:bg-slate-50 dark:hover:bg-slate-800 hover:scale-105 transition-all duration-300"
                         >
-                          <a
-                            href={featuredProject.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="gap-2"
-                          >
-                            <Github className="w-4 h-4" />
-                            View Code
-                          </a>
                         </Button>
                       </div>
                     </CardContent>

@@ -11,7 +11,7 @@ export function AboutSection() {
     setMounted(true)
   }, [])
   const skills = [
-    { icon: Code, title: "Frontend Development", description: "React, Next.js, TypeScript, Tailwind CSS" },
+    { icon: Code, title: "Frontend Development", description: "HTML5, CSS3, React.js, Next.js, TypeScript, Tailwind CSS, Vue.js" },
     { icon: Database, title: "Backend Development", description: "Node.js, PHP, Laravel, CodeIgniter" },
     { icon: Palette, title: "UI/UX Design", description: "Figma, Adobe XD, Responsive Design" },
     { icon: Smartphone, title: "Mobile Development", description: "Flutter, Cross-platform Apps" },
@@ -45,7 +45,7 @@ export function AboutSection() {
               className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed animate-fadeInUp"
               style={{ animationDelay: "0.2s" }}
             >
-              I'm a passionate full-stack developer with over 5 years of experience creating digital solutions that make
+              I'm a passionate full-stack developer with over 6 years of experience creating digital solutions that make
               a difference. I love turning complex problems into simple, beautiful, and intuitive designs.
             </p>
           </div>
@@ -78,13 +78,13 @@ export function AboutSection() {
                   RYNA MOL
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                  I specialize in creating modern, responsive web applications using cutting-edge technologies. My
-                  expertise spans across frontend frameworks like React and Next.js, backend technologies including PHP
-                  and Laravel, and database management systems.
+                  I am a Software Engineer and University Lecturer passionate about building modern, scalable web applications and inspiring the next generation of developers. My expertise includes Laravel, PHP, React, Next.js, JavaScript, MySQL, Docker, and UI/UX Design.
                 </p>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
-                  or sharing my knowledge with the developer community.
+                  I enjoy solving complex problems, creating clean and efficient software, and continuously learning new technologies. As an educator, I focus on making technical concepts practical, engaging, and easy to understand through real-world projects and hands-on learning.
+                </p>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                  Outside of work, I enjoy exploring emerging technologies, improving my development skills, contributing to the developer community, and creating innovative digital solutions that make a meaningful impact.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["React", "Next.js", "TypeScript", "PHP", "Laravel", "Node.js", "Tailwind CSS", "MySQL"].map(
