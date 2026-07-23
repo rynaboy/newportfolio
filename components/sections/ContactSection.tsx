@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone, Github, Linkedin, Send } from "lucide-react"
+import { Mail, MapPin, Phone, Github, Linkedin, Send, Facebook, Instagram } from "lucide-react"
 import { useEffect, useState } from "react"
 import { toast } from "sonner"
 
@@ -105,6 +105,24 @@ export function ContactSection() {
       title: "LinkedIn",
       link: "https://www.linkedin.com/in/mol-ryna-2296b51a1/",
       color: "hover:text-blue-600",
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      link: "mailto:rynaboy22@gmail.com",
+      color: "hover:text-gray-900 dark:hover:text-gray-100",
+    },
+    {
+      icon: Facebook,
+      title: "Facebook",
+      link: "https://www.facebook.com/share/1GNoN5TqAh/?mibextid=wwXIfr",
+      color: "hover:text-blue-600",
+    },
+    {
+      icon: Instagram,
+      title: "Instagram",
+      link: "https://www.instagram.com/mol.ryna?igsh=YmNmYzFxbm81NTF3&utm_source=qr",
+      color: "instagram-gradient-hover",
     },
   ]
 

@@ -39,6 +39,17 @@ export default function RootLayout({
       <body>
         {children}
         <Toaster position="top-right" richColors closeButton />
+        
+        {/* SVG Gradient definitions for icons */}
+        <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: 'absolute', width: 0, height: 0 }}>
+          <defs>
+            <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#f9ce34" />
+              <stop offset="50%" stopColor="#ee2a7b" />
+              <stop offset="100%" stopColor="#6228d7" />
+            </linearGradient>
+          </defs>
+        </svg>
       </body>
     </html>
   )

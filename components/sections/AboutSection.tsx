@@ -102,10 +102,16 @@ export function AboutSection() {
               </div>
               <div className="relative">
                 <div className="w-full h-80 bg-gradient-to-br from-blue-400 to-purple-600 rounded-3xl relative overflow-hidden group">
+                  {/* Cover Background Image */}
+                  <img
+                    className="absolute inset-0 object-cover w-full h-full opacity-40 mix-blend-overlay group-hover:scale-110 transition-transform duration-500"
+                    src="/tech.jpeg"
+                    alt="Technology background cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 animate-pulse"></div>
-                  <div className="absolute inset-4 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                    <div className="text-white text-center">
-                      <div className="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="absolute inset-4 bg-white/10 rounded-2xl flex items-center justify-center border border-white/10">
+                    <div className="text-white text-center relative z-10">
+                      <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
                         <Code className="w-10 h-10" />
                       </div>
                       <p className="text-lg font-semibold">Always Learning</p>

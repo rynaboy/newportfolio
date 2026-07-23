@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react"
+import { Menu, X, Github, Linkedin, Mail, Facebook, Instagram } from "lucide-react"
 export function Navigation() {
   const router = useRouter()
   const pathname = usePathname()
@@ -29,19 +29,36 @@ export function Navigation() {
   ]
 
   const socialLinks = [
-    { 
-      icon: Github, 
-      href: "https://github.com/rynaboy", 
+    {
+      icon: Github,
+      href: "https://github.com/rynaboy",
       label: "GitHub",
-      color: "hover:text-gray-900 dark:hover:text-gray-100"},
-    { icon: Linkedin, 
-      href: "https://www.linkedin.com/in/mol-ryna-2296b51a1/", 
+      color: "hover:text-gray-900 dark:hover:text-gray-100"
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/mol-ryna-2296b51a1/",
       label: "LinkedIn",
-      color: "hover:text-blue-600"},
-    { icon: Mail,
-      href: "mailto:rynaboy22@gmail.com", 
+      color: "hover:text-blue-600"
+    },
+    {
+      icon: Mail,
+      href: "mailto:rynaboy22@gmail.com",
       label: "Email",
-      color: "hover:text-gray-900 dark:hover:text-gray-100"},
+      color: "hover:text-gray-900 dark:hover:text-gray-100"
+    },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/share/1GNoN5TqAh/?mibextid=wwXIfr",
+      label: "Facebook",
+      color: "hover:text-blue-600"
+    },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/mol.ryna?igsh=YmNmYzFxbm81NTF3&utm_source=qr",
+      label: "Instagram",
+      color: "instagram-gradient-hover"
+    },
   ]
 
   const scrollToSection = (href: string) => {
@@ -141,11 +158,10 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-slate-200 dark:border-slate-700"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-slate-200 dark:border-slate-700"
+        : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14 sm:h-16">
@@ -232,9 +248,8 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden transition-all duration-300 ease-in-out ${
-            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-          }`}
+          className={`lg:hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+            }`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-lg mt-2 border border-slate-200 dark:border-slate-700 shadow-lg">
             {navItems.map((item) => (
@@ -266,7 +281,7 @@ export function Navigation() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 ${social.color}`}
+                  className={`text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group ${social.color}`}
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />

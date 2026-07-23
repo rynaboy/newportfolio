@@ -251,3 +251,9 @@
     -webkit-text-fill-color: transparent;
   }
 }
+
+/* Custom Instagram Hover Gradient */
+.instagram-gradient-hover:hover svg {
+  stroke: url(#instagram-gradient) !important;
+}
+
