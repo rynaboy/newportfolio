@@ -33,7 +33,7 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    
+
     if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
       toast.error("Please fill in all required fields (Name, Email, Subject, Message).")
       return
@@ -190,7 +190,7 @@ export function ContactSection() {
                       htmlFor="phone"
                       className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Phone (Optional)
+                      Phone <span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="phone"
@@ -222,7 +222,7 @@ export function ContactSection() {
                       htmlFor="message"
                       className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Message <span className="text-red-500">*</span>
+                      Message
                     </label>
                     <Textarea
                       id="message"
@@ -289,7 +289,7 @@ export function ContactSection() {
 
               {/* Availability status */}
               <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">
-                
+
                 <p className="text-green-700 dark:text-green-300 text-sm">
                   I'm currently available for freelance projects and part-time opportunities.
                 </p>
