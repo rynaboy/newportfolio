@@ -6,13 +6,71 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone, Github, Linkedin, Send } from "lucide-react"
 import { useEffect, useState } from "react"
+import { toast } from "sonner"
 
 export function ContactSection() {
   const [mounted, setMounted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    
+    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+      toast.error("Please fill in all required fields (Name, Email, Subject, Message).")
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        toast.success("Message sent successfully! I'll get back to you soon.")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        })
+      } else {
+        toast.error(data.error || "Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      toast.error("An error occurred. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   const contactInfo = [
     {
@@ -91,17 +149,20 @@ export function ContactSection() {
             >
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send me a message</h3>
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label
                         htmlFor="name"
                         className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                       >
-                        Name
+                        Name <span className="text-red-500">*</span>
                       </label>
                       <Input
                         id="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Your name"
                         className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                       />
@@ -111,11 +172,14 @@ export function ContactSection() {
                         htmlFor="email"
                         className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                       >
-                        Email
+                        Email <span className="text-red-500">*</span>
                       </label>
                       <Input
                         id="email"
                         type="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="your@email.com"
                         className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                       />
@@ -123,13 +187,32 @@ export function ContactSection() {
                   </div>
                   <div>
                     <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    >
+                      Phone (Optional)
+                    </label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Your phone number"
+                      className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label
                       htmlFor="subject"
                       className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Subject
+                      Subject <span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
                       placeholder="Project discussion"
                       className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                     />
@@ -139,10 +222,13 @@ export function ContactSection() {
                       htmlFor="message"
                       className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Message
+                      Message <span className="text-red-500">*</span>
                     </label>
                     <Textarea
                       id="message"
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Tell me about your project..."
                       rows={5}
                       className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors resize-none"
@@ -150,10 +236,11 @@ export function ContactSection() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group disabled:opacity-50 disabled:pointer-events-none"
                   >
                     <Send className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
