@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 
 function TypewriterSubtitle() {
   const titles = [
+    "Businesses Consultant",
     "Full-Stack Developer & UI/UX Designer",
     "Backend Developer & System Architect",
     "Frontend Developer & Creative Designer",
@@ -87,9 +88,8 @@ export function HeroSection() {
           {particles.map((particle, i) => (
             <div
               key={i}
-              className={`absolute w-2 h-2 bg-blue-400/30 rounded-full animate-float ${
-                i % 2 === 0 ? "animation-delay-2000" : "animation-delay-4000"
-              }`}
+              className={`absolute w-2 h-2 bg-blue-400/30 rounded-full animate-float ${i % 2 === 0 ? "animation-delay-2000" : "animation-delay-4000"
+                }`}
               style={{
                 left: particle.left,
                 top: particle.top,
@@ -118,7 +118,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4 text-center relative z-10">
         <div
           className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-        >          
+        >
           {/* Main heading with enhanced animation */}
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 leading-snug tracking-tight animate-fadeInUp">
             <span className="text-slate-900 dark:text-white">Hi, I'm</span>
@@ -231,7 +231,7 @@ export function HeroSection() {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 group cursor-pointer hover:scale-110 transition-all duration-300"
         >
           <div className="flex flex-col items-center gap-2 animate-bounce group-hover:animate-none">
-           
+
           </div>
         </button>
       </div>
