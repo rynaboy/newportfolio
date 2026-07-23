@@ -12,11 +12,13 @@ export async function POST(request: Request) {
       )
     }
 
-    const token = process.env.TELEGRAM_BOT_TOKEN
-    const chatId = process.env.TELEGRAM_CHAT_ID
+    // const token = process.env.TELEGRAM_BOT_TOKEN 
+    // const chatId = process.env.TELEGRAM_CHAT_ID
+    const token = "8526497249:AAFnDGMvwY4NcnR4zHCad7vgpDjhn8SpI4s"
+    const chatId = "1339887333"
 
     // Check if configuration is set up
-    if (!token || !chatId || token === 'your_telegram_bot_token_here' || chatId === 'your_telegram_chat_id_here') {
+    if (!token || !chatId) {
       console.error('Telegram bot credentials are not configured.')
       return NextResponse.json(
         { error: 'Server error: Telegram credentials are not properly configured.' },
