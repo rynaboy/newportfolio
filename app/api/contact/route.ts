@@ -24,8 +24,12 @@ export async function POST(request: Request) {
       )
     }
 
+    // Get the submission source URL
+    const origin = request.headers.get('referer') || request.headers.get('origin') || 'Unknown Origin'
+
     // Format the telegram message with HTML
     let text = `<b>📬 New Portfolio Message</b>\n\n` +
+      `<b>🌐 Source URL:</b> ${escapeHtml(origin)}\n` +
       `<b>👤 Name:</b> ${escapeHtml(name)}\n` +
       `<b>📧 Email:</b> ${escapeHtml(email)}\n`
 
