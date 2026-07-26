@@ -90,6 +90,10 @@ Edit `components/sections/SocialSection.tsx` and update the `socialLinks` array 
    ```tsx
    <img src="/your-qr-code.png" alt="Bank QR Code" className="w-full h-full object-contain" />
    ```
+## DEMO
+
+-Home Page: https://info.molryna.com/
+-Social Media : https://info.molryna.com/social 
 
 ## License
 
