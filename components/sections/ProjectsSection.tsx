@@ -32,12 +32,25 @@ export function ProjectsSection() {
       gradient: "from-red-600 to-orange-600",
     },
     {
+      id: "exchange system",
+      title: "Exchange System Platform",
+      description:
+        "Some-featured for assetmanagement system platform built with Laravel, featuring admin dashboard, Currency, Rate, Buyer, Seller, Transaction, and report.",
+      image: "/exchange.png?height=300&width=200",
+      technologies: ["Laravel", "PHP", "MySQL", "Bootstrap", "Ajax jQuery", "JavaScript", "JWT", "Spatie Permission", "phpunit"],
+      featured: false,
+      liveUrl: "http://asset.molryna.com/login",
+      githubUrl: "#",
+      stats: { stars: 0, views: "10" },
+      gradient: "from-red-600 to-orange-600",
+    },
+    {
       id: "Web Site E-Commerce",
       title: "360 Monica Bedding Store",
       description:
         "Content Management System built with Next.js, Taiwind CSS, REST API, Laravel Backend, and SEO optimization.",
       image: "/monicabadding.png?height=300&width=500",
-      technologies: ["Laravel", "PHP", "MySQL", "jQuery", "Tailwind CSS","Next.js","Node Module","Vercel"],
+      technologies: ["Laravel", "PHP", "MySQL", "jQuery", "Tailwind CSS", "Next.js", "Node Module", "Vercel"],
       featured: false,
       liveUrl: "https://360monica.com/",
       githubUrl: "#",
@@ -61,9 +74,9 @@ export function ProjectsSection() {
       title: "Portfolio Next.js",
       description: "Modern portfolio and details your self by webpage and use this template for free.",
       image: "/molrynaportfolio.png?height=300&width=500",
-      technologies: ["Next.js", "Node.js", "Daisy UI", "JSON data",'Tailwind CSS', "Vercel"],
+      technologies: ["Next.js", "Node.js", "Daisy UI", "JSON data", 'Tailwind CSS', "Vercel"],
       featured: false,
-      liveUrl: "https://molryna.phpcode.shop/",
+      liveUrl: "https://info.molryna.com/",
       githubUrl: "https://github.com/rynaboy/newportfolio",
       stats: { stars: 1, views: "40" },
       gradient: "from-green-500 to-blue-500",
@@ -88,7 +101,7 @@ export function ProjectsSection() {
       technologies: ["Next.js", "JSON data", "Tailwind CSS", "Vercel"],
       featured: false,
       liveUrl: "https://tholsopanha.vercel.app/",
-      githubUrl: "#", 
+      githubUrl: "#",
       stats: { stars: 0, views: "0" },
       gradient: "from-purple-600 to-pink-600",
     },
@@ -256,16 +269,17 @@ export function ProjectsSection() {
 
           {/* Enhanced view all projects button */}
           <div className="text-center">
-            <Button 
+            <Button
               variant="outline"
               size="lg"
+              asChild
               className="group bg-white/50 dark:bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/80 dark:hover:bg-white/20 px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              <a href={`https://github.com/rynaboy?tab=repositories`} target="_blank" rel="noopener noreferrer" className="gap-2">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
-                View All Projects
-              </span>
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <a href={`https://github.com/rynaboy?tab=repositories`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
+                  View All Projects
+                </span>
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
