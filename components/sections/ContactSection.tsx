@@ -244,7 +244,6 @@ export function ContactSection() {
                     </label>
                     <Textarea
                       id="message"
-                      required
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell me about your project..."
