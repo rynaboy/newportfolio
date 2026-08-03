@@ -6,7 +6,7 @@ import { ExternalLink, Github, ArrowRight, Star, Eye } from "lucide-react"
 export function ProjectsSection() {
   const projects = [
     {
-      id: "Ditribution Management System",
+      id: "Distribution Management System",
       title: "Laravel Distribution Management Platform",
       description:
         "Some-featured for distribution system platform built with Laravel, featuring admin dashboard, staff, Category, and inventory management, role permission level, sales, purchasing, stock movement, commission based.",
@@ -20,9 +20,9 @@ export function ProjectsSection() {
     },
     {
       id: "laravel-assetmanagement",
-      title: "Laravel Asset Mangeemnt Platform",
+      title: "Laravel Asset Management Platform",
       description:
-        "Some-featured for assetmanagement system platform built with Laravel, featuring admin dashboard, Floor, Cagegory, and inventory management.",
+        "Some-featured for asset management system platform built with Laravel, featuring admin dashboard, Floor, Category, and inventory management.",
       image: "/assetdashborad.png?height=300&width=200",
       technologies: ["Laravel", "PHP", "MySQL", "Bootstrap", "Stripe API"],
       featured: false,
@@ -50,7 +50,7 @@ export function ProjectsSection() {
       description:
         "Content Management System built with Next.js, Taiwind CSS, REST API, Laravel Backend, and SEO optimization.",
       image: "/monicabadding.png?height=300&width=500",
-      technologies: ["Laravel", "PHP", "MySQL", "jQuery", "Tailwind CSS", "Next.js", "Node Module", "Vercel"],
+      technologies: ["Laravel", "PHP", "MySQL", "jQuery", "Tailwind CSS", "Next.js", "Node.js", "Vercel"],
       featured: false,
       liveUrl: "https://360monica.com/",
       githubUrl: "#",
@@ -70,9 +70,9 @@ export function ProjectsSection() {
       gradient: "from-purple-600 to-pink-600",
     },
     {
-      id: "Profolio Next.js",
+      id: "Portfolio Next.js",
       title: "Portfolio Next.js",
-      description: "Modern portfolio and details your self by webpage and use this template for free.",
+      description: "Modern portfolio to showcase details about yourself on a webpage. Use this template for free.",
       image: "/molrynaportfolio.png?height=300&width=500",
       technologies: ["Next.js", "Node.js", "Daisy UI", "JSON data", 'Tailwind CSS', "Vercel"],
       featured: false,

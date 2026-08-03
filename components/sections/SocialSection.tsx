@@ -98,7 +98,7 @@ export function SocialSection() {
     {
       name: "LinkedIn",
       icon: LinkedInIcon,
-      href: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile", // You'll add your link here
+      href: "https://www.linkedin.com/in/mol-ryna-2296b51a1/", // You'll add your link here
       gradient: "from-blue-700 to-blue-800",
       hoverGradient: "from-blue-800 to-blue-900",
       bgColor: "bg-blue-700/10",

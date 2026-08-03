@@ -13,7 +13,7 @@ Modern portfolio website built with Next.js 15, React 19, TypeScript, and Tailwi
 
 ## Tech Stack
   
-- **Framework**: Next.js 15.2.4
+- **Framework**: Next.js 15.2.8
 - **React**: 19
 - **TypeScript**: 5
 - **Styling**: Tailwind CSS 3.4

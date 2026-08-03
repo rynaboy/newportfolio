@@ -3,12 +3,19 @@
 import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Github, Linkedin, Mail, Facebook, Instagram } from "lucide-react"
+import { Menu, X, Github, Linkedin, Mail, Facebook, Instagram, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
 export function Navigation() {
   const router = useRouter()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +62,7 @@ export function Navigation() {
     },
     {
       icon: Instagram,
-      href: "https://www.instagram.com/mol.ryna?igsh=YmNmYzFxbm81NTF3&utm_source=qr",
+      href: "https://www.instagram.com/mol.ryna/",
       label: "Instagram",
       color: "instagram-gradient-hover"
     },
@@ -217,13 +224,13 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Social Links - Desktop */}
+          {/* Social Links & Theme Toggle - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
-                target={social.href.startsWith("mailto:") ? "_blank" : "_blank"}
+                target="_blank"
                 rel="noopener noreferrer"
                 className={`w-12 h-12 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center hover:shadow-md transition-all duration-300 hover:scale-110 text-slate-600 dark:text-slate-400 group ${social.color}`}
                 aria-label={social.label}
@@ -231,6 +238,18 @@ export function Navigation() {
                 <social.icon className="w-5 h-5 group-hover:animate-bounce" />
               </a>
             ))}
+            
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="w-12 h-12 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center hover:shadow-md transition-all duration-300 hover:scale-110 text-slate-600 dark:text-slate-400"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </Button>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -273,7 +292,7 @@ export function Navigation() {
               </a>
             ))}
 
-            {/* Mobile Social Links */}
+            {/* Mobile Social Links & Theme Toggle */}
             <div className="flex items-center justify-center space-x-4 pt-4 border-t border-slate-200 dark:border-slate-700" style={{ animationDelay: "0.6s" }}>
               {socialLinks.map((social) => (
                 <a
@@ -287,6 +306,16 @@ export function Navigation() {
                   <social.icon className="w-5 h-5" />
                 </a>
               ))}
+              
+              {mounted && (
+                <button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
+                  aria-label="Toggle theme"
+                >
+                  {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                </button>
+              )}
             </div>
           </div>
         </div>

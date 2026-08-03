@@ -12,10 +12,8 @@ export async function POST(request: Request) {
       )
     }
 
-    // const token = process.env.TELEGRAM_BOT_TOKEN 
-    // const chatId = process.env.TELEGRAM_CHAT_ID
-    const token = "8526497249:AAFnDGMvwY4NcnR4zHCad7vgpDjhn8SpI4s"
-    const chatId = "1339887333"
+    const token = process.env.TELEGRAM_BOT_TOKEN 
+    const chatId = process.env.TELEGRAM_CHAT_ID
 
     // Check if configuration is set up
     if (!token || !chatId) {
@@ -68,7 +66,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, message: 'Message sent successfully.' })
   } catch (error: any) {
-    console.error('Contact Form Handing Error:', error)
+    console.error('Contact Form Handling Error:', error)
     return NextResponse.json(
       { error: error.message || 'An internal server error occurred.' },
       { status: 500 }
