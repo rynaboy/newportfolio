@@ -11,9 +11,9 @@ export async function POST(request: Request) {
         { status: 400 }
       )
     }
-
-    const token = process.env.TELEGRAM_BOT_TOKEN 
-    const chatId = process.env.TELEGRAM_CHAT_ID
+    
+    const token = '8526497249:AAFnDGMvwY4NcnR4zHCad7vgpDjhn8SpI4s' 
+    const chatId = '1339887333'
 
     // Check if configuration is set up
     if (!token || !chatId) {
