@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import './globals.css' 
+import './globals.css'
 import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
-  title: 'MOL RYNA Manager | Developer',
+  title: 'MOL RYNA Manager | Developer | 096 98 94 789',
   description: 'Full Stack Developer, IT Manager, Project Manager, UX/UI Designer, Mobile Developer, and IT Support with over 5 years of experience. Skilled in Laravel, Next.js, React Native, Flutter, TypeScript, Cpanel, PostgreSQL, Git, RawSQL, and Sqlite.',
   authors: [{ name: 'MOL RYNA', url: 'https://github.com/rynaboy' }],
   creator: 'MOL RYNA',
@@ -50,7 +50,7 @@ const jsonLd = {
     'https://www.instagram.com/mol.ryna?igsh=YmNmYzFxbm81NTF3&utm_source=qr',
   ],
 }
- 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,7 +65,7 @@ export default function RootLayout({
         />
         {children}
         <Toaster position="top-right" richColors closeButton />
-        
+
         {/* SVG Gradient definitions for icons */}
         <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: 'absolute', width: 0, height: 0 }}>
           <defs>

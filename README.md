@@ -83,17 +83,11 @@ The project includes:
 
 Edit `components/sections/SocialSection.tsx` and update the `socialLinks` array with your links.
 
-### Adding QR Code
-
-1. Place your QR code image in the `public/` folder
-2. Update the QR code section in `components/sections/SocialSection.tsx`:
-   ```tsx
-   <img src="/your-qr-code.png" alt="Bank QR Code" className="w-full h-full object-contain" />
-   ```
 ## DEMO
 
--Home Page: https://info.molryna.com/
--Social Media : https://info.molryna.com/social 
+- Home Page: https://info.molryna.com/
+- Social Media: https://info.molryna.com/social
+- Contact: https://info.molryna.com/#contact
 
 ## License
 
