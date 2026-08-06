@@ -1,14 +1,19 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useLanguage } from "@/lib/language-context"
 
 export function SkillsSection() {
+  const { t } = useLanguage()
+
   const skillCategories = [
     {
-      title: "Frontend",
+      title: t.skills.frontend,
       skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js", "HTML5", "CSS3", "JavaScript"],
     },
     {
-      title: "Backend",
+      title: t.skills.backend,
       skills: [
         "PHP",
         "Laravel",
@@ -33,18 +38,19 @@ export function SkillsSection() {
       ],
     },
     {
-      title: "Database & APIs",
+      title: t.skills.databaseDevops,
       skills: [
         "MySQL",
+        "PostgreSQL",
+        "SQLite",
         "REST APIs",
         "CRUD Operations",
         "Database Design",
-        "API Integration",
       ],
     },
     {
-      title: "Tools & DevOps",
-      skills: ["Git", "Vercel", "cPanel", "Linux", "Apache", "Nginx"],
+      title: t.skills.managementTools,
+      skills: ["Git", "GitHub", "Vercel", "cPanel", "Linux", "Apache", "Nginx", "Figma"],
     },
   ]
 
@@ -55,13 +61,10 @@ export function SkillsSection() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-slate-900 dark:text-white">Skills &</span>{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Technologies
-              </span>
+              <span className="text-slate-900 dark:text-white">{t.skills.title}</span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              Technologies and tools I use to bring ideas to life
+              {t.skills.subtitle}
             </p>
           </div>
 

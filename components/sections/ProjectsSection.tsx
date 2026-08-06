@@ -1,9 +1,14 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, ArrowRight, Star, Eye } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 export function ProjectsSection() {
+  const { t } = useLanguage()
+
   const projects = [
     {
       id: "Distribution Management System",
@@ -122,16 +127,13 @@ export function ProjectsSection() {
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Star className="w-4 h-4" />
-              My Personal Projects
+              {t.projects.title}
             </div>
             <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
-              <span className="text-slate-900 dark:text-white">Featured</span>{" "}
-              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">
-                Projects
-              </span>
+              <span className="text-slate-900 dark:text-white">{t.projects.title}</span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Explore a selection of my recent projects that demonstrate my technical expertise, problem-solving abilities, and commitment to creating modern, high-quality web applications.
+              {t.projects.subtitle}
             </p>
           </div>
 

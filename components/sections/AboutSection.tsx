@@ -4,18 +4,22 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Code, Palette, Database, Smartphone } from "lucide-react"
 import { useEffect, useState } from "react"
+import { useLanguage } from "@/lib/language-context"
 
 export function AboutSection() {
+  const { t } = useLanguage()
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
     setMounted(true)
   }, [])
+
   const skills = [
-    { icon: Code, title: "Frontend Development", description: "HTML5, CSS3, React.js, Next.js, TypeScript, Tailwind CSS, Vue.js" },
-    { icon: Database, title: "Backend Development", description: "Node.js, PHP, Laravel, CodeIgniter" },
-    { icon: Palette, title: "UI/UX Design", description: "Figma, Adobe XD, Responsive Design" },
-    { icon: Smartphone, title: "Mobile Development", description: "Flutter, Cross-platform Apps" },
+    { icon: Code, title: t.skills.frontend, description: "HTML5, CSS3, React.js, Next.js, TypeScript, Tailwind CSS, Vue.js" },
+    { icon: Database, title: t.skills.backend, description: "Node.js, PHP, Laravel, CodeIgniter, Express, REST API" },
+    { icon: Palette, title: "UI/UX Design", description: "Figma, Adobe XD, Responsive Design, User Experience" },
+    { icon: Smartphone, title: t.skills.mobile, description: "React Native, Flutter, iOS & Android Cross-platform" },
   ]
+
   return (
     <section
       id="about"
@@ -36,19 +40,16 @@ export function AboutSection() {
           {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 animate-fadeInUp">
-              About{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Me
-              </span>
+              {t.about.title}
             </h2>
             <p
               className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed animate-fadeInUp"
               style={{ animationDelay: "0.2s" }}
             >
-              I'm a passionate full-stack developer with over 6 years of experience creating digital solutions that make
-              a difference. I love turning complex problems into simple, beautiful, and intuitive designs.
+              {t.about.subtitle}
             </p>
           </div>
+
           {/* Skills grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {skills.map((skill, index) => (
@@ -67,6 +68,7 @@ export function AboutSection() {
               </Card>
             ))}
           </div>
+
           {/* Personal info */}
           <div
             className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all duration-300 animate-fadeInUp"
@@ -75,16 +77,13 @@ export function AboutSection() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6">
-                  RYNA MOL
+                  {t.about.heading}
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                  I am a Software Engineer and University Lecturer passionate about building modern, scalable web applications and inspiring the next generation of developers. My expertise includes Laravel, PHP, React, Next.js, JavaScript, MySQL, Docker, and UI/UX Design.
+                  {t.about.paragraph1}
                 </p>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                  I enjoy solving complex problems, creating clean and efficient software, and continuously learning new technologies. As an educator, I focus on making technical concepts practical, engaging, and easy to understand through real-world projects and hands-on learning.
-                </p>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                  Outside of work, I enjoy exploring emerging technologies, improving my development skills, contributing to the developer community, and creating innovative digital solutions that make a meaningful impact.
+                  {t.about.paragraph2}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["React", "Next.js", "TypeScript", "PHP", "Laravel", "Node.js", "Tailwind CSS", "MySQL"].map(
@@ -114,8 +113,8 @@ export function AboutSection() {
                       <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
                         <Code className="w-10 h-10" />
                       </div>
-                      <p className="text-lg font-semibold">Always Learning</p>
-                      <p className="text-sm opacity-80">Staying updated with latest tech</p>
+                      <p className="text-lg font-semibold">{t.about.strength1Title}</p>
+                      <p className="text-sm opacity-80">{t.about.strength1Desc}</p>
                     </div>
                   </div>
                 </div>

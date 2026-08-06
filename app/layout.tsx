@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Toaster } from 'sonner'
 import { ThemeProvider } from '@/components/theme-provider'
+import { LanguageProvider } from '@/lib/language-context'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://info.molryna.com'),
   title: 'MOL RYNA Manager | Developer | 096 98 94 789',
   description: 'Full Stack Developer, IT Manager, Project Manager, UX/UI Designer, Mobile Developer, and IT Support with over 5 years of experience. Skilled in Laravel, Next.js, React Native, Flutter, TypeScript, Cpanel, PostgreSQL, Git, RawSQL, and Sqlite.',
   authors: [{ name: 'MOL RYNA', url: 'https://github.com/rynaboy' }],
@@ -58,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <script
           type="application/ld+json"
@@ -70,8 +72,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-          <Toaster position="top-right" richColors closeButton />
+          <LanguageProvider>
+            {children}
+            <Toaster position="top-right" richColors closeButton />
+          </LanguageProvider>
         </ThemeProvider>
 
         {/* SVG Gradient definitions for icons */}

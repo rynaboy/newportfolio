@@ -8,6 +8,7 @@ import {
   QrCode
 } from "lucide-react"
 import { useEffect, useState } from "react"
+import { useLanguage } from "@/lib/language-context"
 
 // SVG Icon Components
 const TelegramIcon = ({ className }: { className?: string }) => (
@@ -44,6 +45,7 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 )
 
 export function SocialSection() {
+  const { t } = useLanguage()
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
   const [particles, setParticles] = useState<Array<{ left: string; top: string; duration: string }>>([])
@@ -141,17 +143,15 @@ export function SocialSection() {
           {/* Section header */}
           <div className="text-center mb-16 pt-24">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight animate-fadeInUp">
-              <span className="text-slate-900 dark:text-white">Connect With</span>
-              <br />
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Me
+                {t.social.connectWithMe}
               </span>
             </h1>
             <p
               className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed animate-fadeInUp"
               style={{ animationDelay: "0.2s" }}
             >
-              Follow me on social media and stay connected. You can also scan my QR code for quick access.
+              {t.social.subtitle}
             </p>
           </div>
 
@@ -177,7 +177,7 @@ export function SocialSection() {
                       {social.name}
                     </h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
-                      Click to visit
+                      {t.social.clickToVisit}
                     </p>
                   </CardContent>
                 </Card>
@@ -195,7 +195,7 @@ export function SocialSection() {
                     <QrCode className="w-10 h-10 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
-                    Bank QR Code
+                    {t.social.bankQrCode}
                   </h3>
                   <div className="w-48 h-48 bg-white dark:bg-slate-700 rounded-xl flex items-center justify-center border-2 border-slate-200 dark:border-slate-600 mb-4 overflow-hidden shadow-sm">
                     <img
@@ -205,7 +205,7 @@ export function SocialSection() {
                     />
                   </div>
                   <p className="text-sm text-slate-500 dark:text-slate-400">
-                    Scan to make payment
+                    {t.social.scanToPay}
                   </p>
                 </CardContent>
               </Card>
@@ -224,7 +224,7 @@ export function SocialSection() {
               className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 font-medium cursor-pointer"
             >
               <span>←</span>
-              <span>Back to Home</span>
+              <span>{t.social.backToHome}</span>
             </button>
           </div>
         </div>

@@ -2,15 +2,19 @@
 
 import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Github, Linkedin, Mail, Facebook, Instagram, Sun, Moon } from "lucide-react"
+import { Menu, X, Github, Linkedin, Mail, Facebook, Instagram, Sun, Moon, Globe } from "lucide-react"
 import { useTheme } from "next-themes"
+import { useLanguage } from "@/lib/language-context"
+
 export function Navigation() {
   const router = useRouter()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { theme, setTheme } = useTheme()
+  const { language, setLanguage, t } = useLanguage()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -26,13 +30,13 @@ export function Navigation() {
   }, [])
 
   const navItems = [
-    { name: "Home", href: "#home", isAnchor: true },
-    { name: "About", href: "#about", isAnchor: true },
-    { name: "Skills", href: "#skills", isAnchor: true },
-    { name: "Projects", href: "#projects", isAnchor: true },
-    { name: "Experience", href: "#experience", isAnchor: true },
-    { name: "Contact", href: "#contact", isAnchor: true },
-    { name: "Social", href: "/social", isAnchor: false },
+    { id: "home", name: t.nav.home, href: "#home", isAnchor: true },
+    { id: "about", name: t.nav.about, href: "#about", isAnchor: true },
+    { id: "skills", name: t.nav.skills, href: "#skills", isAnchor: true },
+    { id: "projects", name: t.nav.projects, href: "#projects", isAnchor: true },
+    { id: "experience", name: t.nav.experience, href: "#experience", isAnchor: true },
+    { id: "contact", name: t.nav.contact, href: "#contact", isAnchor: true },
+    { id: "social", name: t.nav.social, href: "/social", isAnchor: false },
   ]
 
   const socialLinks = [
@@ -174,7 +178,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a
+            <Link
               href="/"
               onClick={(e) => {
                 e.preventDefault()
@@ -192,7 +196,7 @@ export function Navigation() {
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:animate-pulse hover:shadow-md transition-all duration-300"
             >
               Ryna
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -224,27 +228,40 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Social Links & Theme Toggle - Desktop */}
-          <div className="hidden lg:flex items-center space-x-4">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-12 h-12 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center hover:shadow-md transition-all duration-300 hover:scale-110 text-slate-600 dark:text-slate-400 group ${social.color}`}
-                aria-label={social.label}
+          {/* Language & Theme Toggle - Desktop */}
+          <div className="hidden lg:flex items-center space-x-3">
+            {/* Language Switcher */}
+            <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
+              <button
+                onClick={() => setLanguage("km")}
+                className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 ${
+                  language === "km"
+                    ? "bg-blue-600 text-white shadow-sm"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                }`}
               >
-                <social.icon className="w-5 h-5 group-hover:animate-bounce" />
-              </a>
-            ))}
-            
+                <span>🇰🇭</span>
+                <span>ខ្មែរ</span>
+              </button>
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 ${
+                  language === "en"
+                    ? "bg-blue-600 text-white shadow-sm"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                }`}
+              >
+                <span>🇬🇧</span>
+                <span>EN</span>
+              </button>
+            </div>
+
             {mounted && (
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-12 h-12 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center hover:shadow-md transition-all duration-300 hover:scale-110 text-slate-600 dark:text-slate-400"
+                className="w-10 h-10 dark:bg-slate-800/60 backdrop-blur-sm rounded-xl flex items-center justify-center hover:shadow-md transition-all duration-300 hover:scale-105 text-slate-600 dark:text-slate-400"
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -292,30 +309,58 @@ export function Navigation() {
               </a>
             ))}
 
-            {/* Mobile Social Links & Theme Toggle */}
-            <div className="flex items-center justify-center space-x-4 pt-4 border-t border-slate-200 dark:border-slate-700" style={{ animationDelay: "0.6s" }}>
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group ${social.color}`}
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-              
-              {mounted && (
+            {/* Mobile Language Switcher & Social Links & Theme Toggle */}
+            <div className="flex flex-col items-center justify-center space-y-3 pt-4 border-t border-slate-200 dark:border-slate-700">
+              {/* Mobile Language Switcher */}
+              <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
                 <button
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
-                  aria-label="Toggle theme"
+                  onClick={() => setLanguage("km")}
+                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 ${
+                    language === "km"
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "text-slate-600 dark:text-slate-400"
+                  }`}
                 >
-                  {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                  <span>🇰🇭</span>
+                  <span>ភាសាខ្មែរ</span>
                 </button>
-              )}
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 ${
+                    language === "en"
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "text-slate-600 dark:text-slate-400"
+                  }`}
+                >
+                  <span>🇬🇧</span>
+                  <span>English</span>
+                </button>
+              </div>
+
+              <div className="flex items-center justify-center space-x-4 pt-1">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 group ${social.color}`}
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
+                
+                {mounted && (
+                  <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
+                    aria-label="Toggle theme"
+                  >
+                    {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>

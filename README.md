@@ -10,6 +10,7 @@ Modern portfolio website built with Next.js 15, React 19, TypeScript, and Tailwi
 - ⚡ Fast performance with Next.js 15
 - 🎯 SEO optimized
 - 📄 Social media page with QR code support
+- 🇰🇭 **Bilingual Support**: Native support for both Khmer (`km`, default) and English (`en`)
 
 ## Tech Stack
   
@@ -19,6 +20,17 @@ Modern portfolio website built with Next.js 15, React 19, TypeScript, and Tailwi
 - **Styling**: Tailwind CSS 3.4
 - **UI Components**: Radix UI
 - **Icons**: Lucide React
+
+## Khmer Language Support
+
+This portfolio is tailored to support the **Khmer (Cambodian) language** as the default locale, while offering a full English translation.
+
+### Localization System
+- **Language Switcher**: Built using React Context 
+### Khmer Typography
+To deliver an elegant and highly readable typography layout for Khmer script, the project imports and configures:
+- **Kantumruy Pro** & **Noto Sans Khmer** (via Google Fonts) as primary typefaces.
+- **Preahvihear** for specific UI display accents.
 
 ## Getting Started
 

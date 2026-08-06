@@ -1,14 +1,19 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Building, Calendar } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 export function ExperienceSection() {
+  const { t } = useLanguage()
+
   const experiences = [
     {
       title: "IT Manager & Full-Stack Developer",
       company: "TANADA Property Co,.Ltd.",
-      period: "2026 - Present",
-      location: "Phnom Penh, Cambodia",
+      period: `2026 - ${t.experience.present}`,
+      location: t.contact.location,
       description:
         "Leading development of scalable web applications and mobile app. Using Next.js, Node.js, Laravel Framework, Python, React Native, and Flutter. Mentoring junior developers and architecting for complex business requirements.",
       technologies: ["Laravel", "Next.js", "React Native", "Flutter", "TypeScript", "cPanel", "PostgreSQL", "Git", "Raw SQL", "SQLite"],
@@ -18,7 +23,7 @@ export function ExperienceSection() {
       title: "Project Manager & Full-Stack Developer",
       company: "Technology Solution Development TSD Co,.Ltd.",
       period: "2020 - 2026",
-      location: "Phnom Penh, Cambodia",
+      location: t.contact.location,
       description:
         "Leading development of scalable web applications using PHP, Next.js, and Node.js. Mentoring junior developers and architecting solutions for complex business requirements.",
       technologies: ["PHP", "Next.js", "TypeScript", "cPanel", "PostgreSQL"],
@@ -28,7 +33,7 @@ export function ExperienceSection() {
       title: "Full-Stack Developer",
       company: "Technology Solution Development TSD Co,.Ltd.",
       period: "2021 - 2023",
-      location: "Phnom Penh, Cambodia",
+      location: t.contact.location,
       description:
         "Developed and maintained multiple client projects, implemented PHP, Laravel, CodeIgniter, and collaborated with design teams to create pixel-perfect user interfaces.",
       technologies: ["PHP", "Laravel", "CodeIgniter", "MySQL", "SQLite", "Git", "CMS"],
@@ -38,7 +43,7 @@ export function ExperienceSection() {
       title: "UX/UI Designer & Frontend Developer",
       company: "Technology Solution Development TSD Co,.Ltd.",
       period: "2020 - 2021",
-      location: "Phnom Penh, Cambodia",
+      location: t.contact.location,
       description:
         "Created responsive web applications and landing pages for various clients. Focused on performance optimization and cross-browser compatibility.",
       technologies: ["JavaScript", "HTML5", "CSS3", "Webpack", "Sass"],
@@ -48,7 +53,7 @@ export function ExperienceSection() {
       title: "Internship - Web Development",
       company: "Technology Solution Development TSD Co,.Ltd.",
       period: "2019 - 2020",
-      location: "Phnom Penh, Cambodia",
+      location: t.contact.location,
       description:
         "Created responsive web applications and landing pages for various clients. Focused on performance optimization and cross-browser compatibility.",
       technologies: ["HTML5", "CSS", "JavaScript"],
@@ -83,13 +88,10 @@ export function ExperienceSection() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-slate-900 dark:text-white">Work</span>{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Experience
-              </span>
+              <span className="text-slate-900 dark:text-white">{t.experience.title}</span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-              My professional journey and the companies I've had the pleasure to work with
+              {t.experience.subtitle}
             </p>
           </div>
 

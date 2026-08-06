@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone, Github, Linkedin, Send, Facebook, Instagram } from "lucide-react"
 import { useEffect, useState } from "react"
 import { toast } from "sonner"
+import { useLanguage } from "@/lib/language-context"
 
 export function ContactSection() {
+  const { t } = useLanguage()
   const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
@@ -35,7 +37,7 @@ export function ContactSection() {
     e.preventDefault()
 
     if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
-      toast.error("Please fill in all required fields (Name, Email, Subject, Message).")
+      toast.error(t.contact.namePlaceholder)
       return
     }
 
@@ -53,7 +55,7 @@ export function ContactSection() {
       const data = await response.json()
 
       if (response.ok) {
-        toast.success("Message sent successfully! I'll get back to you soon.")
+        toast.success(t.contact.successTitle)
         setFormData({
           name: "",
           email: "",
@@ -88,7 +90,7 @@ export function ContactSection() {
     {
       icon: MapPin,
       title: "Location",
-      value: "Phnom Penh, Cambodia",
+      value: t.contact.location,
       link: "#",
     },
   ]
@@ -146,16 +148,13 @@ export function ContactSection() {
           {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 animate-fadeInUp">
-              Get In{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Touch
-              </span>
+              {t.contact.title}
             </h2>
             <p
               className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed animate-fadeInUp"
               style={{ animationDelay: "0.2s" }}
             >
-              Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
+              {t.contact.subtitle}
             </p>
           </div>
 
@@ -166,7 +165,7 @@ export function ContactSection() {
               style={{ animationDelay: "0.4s" }}
             >
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send me a message</h3>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">{t.contact.title}</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -174,14 +173,14 @@ export function ContactSection() {
                         htmlFor="name"
                         className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                       >
-                        Name <span className="text-red-500">*</span>
+                        {t.contact.name} <span className="text-red-500">*</span>
                       </label>
                       <Input
                         id="name"
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Your name"
+                        placeholder={t.contact.namePlaceholder}
                         className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                       />
                     </div>
@@ -190,7 +189,7 @@ export function ContactSection() {
                         htmlFor="email"
                         className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                       >
-                        Email <span className="text-red-500">*</span>
+                        {t.contact.email} <span className="text-red-500">*</span>
                       </label>
                       <Input
                         id="email"
@@ -198,7 +197,7 @@ export function ContactSection() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="your@email.com"
+                        placeholder={t.contact.emailPlaceholder}
                         className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                       />
                     </div>
@@ -208,14 +207,14 @@ export function ContactSection() {
                       htmlFor="phone"
                       className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Phone <span className="text-red-500">*</span>
+                      {t.contact.phone} <span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="phone"
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="Your phone number"
+                      placeholder={t.contact.phonePlaceholder}
                       className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                     />
                   </div>
@@ -224,14 +223,14 @@ export function ContactSection() {
                       htmlFor="subject"
                       className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Subject <span className="text-red-500">*</span>
+                      {t.contact.subject} <span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="subject"
                       required
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Project discussion"
+                      placeholder={t.contact.subjectPlaceholder}
                       className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors"
                     />
                   </div>
@@ -240,13 +239,13 @@ export function ContactSection() {
                       htmlFor="message"
                       className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
                     >
-                      Message
+                      {t.contact.message}
                     </label>
                     <Textarea
                       id="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell me about your project..."
+                      placeholder={t.contact.messagePlaceholder}
                       rows={5}
                       className="bg-white/50 dark:bg-slate-700/50 backdrop-blur-sm border-slate-300 dark:border-slate-600 focus:border-blue-500 dark:focus:border-blue-400 transition-colors resize-none"
                     />
@@ -257,7 +256,7 @@ export function ContactSection() {
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group disabled:opacity-50 disabled:pointer-events-none"
                   >
                     <Send className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? t.contact.sending : t.contact.send}
                   </Button>
                 </form>
               </CardContent>
@@ -266,7 +265,7 @@ export function ContactSection() {
             {/* Contact info */}
             <div className="space-y-8 animate-fadeInUp" style={{ animationDelay: "0.6s" }}>
               <div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Contact Information</h3>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">{t.contact.infoTitle}</h3>
                 <div className="space-y-4">
                   {contactInfo.map((info, index) => (
                     <a
@@ -288,7 +287,7 @@ export function ContactSection() {
 
               {/* Social links */}
               <div>
-                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Follow me</h4>
+                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{t.social.followMe}</h4>
                 <div className="flex gap-4">
                   {socialLinks.map((social, index) => (
                     <a
@@ -306,9 +305,8 @@ export function ContactSection() {
 
               {/* Availability status */}
               <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">
-
                 <p className="text-green-700 dark:text-green-300 text-sm">
-                  I'm currently available for freelance projects and part-time opportunities.
+                  {t.contact.availableFreelance}
                 </p>
               </div>
             </div>
