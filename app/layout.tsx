@@ -7,13 +7,13 @@ import { LanguageProvider } from '@/lib/language-context'
 export const metadata: Metadata = {
   metadataBase: new URL('https://info.molryna.com'),
   title: 'MOL RYNA Manager | Developer | 096 98 94 789',
-  description: 'Full Stack Developer, IT Manager, Project Manager, UX/UI Designer, Mobile Developer, and IT Support with over 5 years of experience. Skilled in Laravel, Next.js, React Native, Flutter, TypeScript, Cpanel, PostgreSQL, Git, RawSQL, and Sqlite.',
+  description: 'Full Stack Developer, IT Manager, Project Manager, UX/UI Designer, Mobile Developer, and IT Support with over 6 years of experience. Skilled in Laravel, Next.js, React Native, Flutter, TypeScript, Cpanel, PostgreSQL, Git, RawSQL, and Sqlite.',
   authors: [{ name: 'MOL RYNA', url: 'https://github.com/rynaboy' }],
   creator: 'MOL RYNA',
   publisher: 'MOL RYNA',
   openGraph: {
     title: 'MOL RYNA Manager | Developer | 096 98 94 789',
-    description: 'Full Stack Developer, IT Manager, Project Manager, UX/UI Designer, Mobile Developer, and IT Support with over 5 years of experience. Skilled in Laravel, Next.js, React Native, Flutter, TypeScript, Cpanel, PostgreSQL, Git, RawSQL, and Sqlite.',
+    description: 'Full Stack Developer, IT Manager, Project Manager, UX/UI Designer, Mobile Developer, and IT Support with over 6 years of experience. Skilled in Laravel, Next.js, React Native, Flutter, TypeScript, Cpanel, PostgreSQL, Git, RawSQL, and Sqlite.',
     type: 'website',
     images: [
       {
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MOL RYNA Manager | Developer',
-    description: 'Full Stack Developer, IT Manager, Project Manager, UX/UI Designer, Mobile Developer, and IT Support with over 5 years of experience. Skilled in Laravel, Next.js, React Native, Flutter, TypeScript, Cpanel, PostgreSQL, Git, RawSQL, and Sqlite.',
+    title: 'MOL RYNA Manager | Developer | 096 98 94 789',
+    description: 'Full Stack Developer, IT Manager, Project Manager, UX/UI Designer, Mobile Developer, and IT Support with over 6 years of experience. Skilled in Laravel, Next.js, React Native, Flutter, TypeScript, Cpanel, PostgreSQL, Git, RawSQL, and Sqlite.',
   },
   icons: {
     icon: '/molryna.ico',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'MOL RYNA',
+  name: 'MOL RYNA Manager | Developer | 096 98 94 789',
   jobTitle: 'Full Stack Developer & IT Manager',
   email: 'rynaboy22@gmail.com',
   telephone: '+855 96 98 94 789',

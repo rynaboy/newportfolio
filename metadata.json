@@ -1,1 +1,8 @@
-{"name":"newportfolio","description":"Full Stack Developer \u0026 IT Manager Portfolio","requestFramePermissions":[],"majorCapabilities":["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]}
+{
+    "name": "MOL RYNA",
+    "description": "Full Stack Developer \u0026 IT Manager Portfolio",
+    "requestFramePermissions": [],
+    "majorCapabilities": [
+        "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+    ]
+}
