@@ -24,6 +24,19 @@ export function ProjectsSection() {
       gradient: "from-red-600 to-orange-600",
     },
     {
+      id: "TruckFlow Management System",
+      title: "TruckFlow Management System",
+      description:
+        "Some-featured for Truck Solution  platform built with Laravel, featuring admin dashboard, Truck, Customers, Products, Flow, and report management.",
+      image: "/truckflow.png?height=300&width=200",
+      technologies: ["Laravel", "PHP", "MySQL", "jQuery", "Bootstrap", "Tailwind CSS", "Stripe API", "JWT", "Spatie Permission", "phpunit"],
+      featured: false,
+      liveUrl: "#",
+      githubUrl: "#",
+      stats: { stars: 0, views: "10" },
+      gradient: "from-red-600 to-orange-600",
+    },
+    {
       id: "laravel-assetmanagement",
       title: "Laravel Asset Management Platform",
       description:
